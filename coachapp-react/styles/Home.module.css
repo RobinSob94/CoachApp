@@ -109,6 +109,29 @@
   transform: translateZ(0);
 }
 
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.formComponent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.formInput {
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.formButton {
+  width: fit-content;
+  padding: 5px;
+  margin: 0 auto;
+}
+
 .logo {
   position: relative;
 }
