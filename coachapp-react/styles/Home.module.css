@@ -35,6 +35,12 @@
   gap: 10px;
 }
 
+.registrationFormContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .formTitle {
   text-align: center;
   font-size: 1.5rem;
@@ -119,6 +125,7 @@
 }
 
 .center::before {
+  z-index: -1;
   background: var(--secondary-glow);
   border-radius: 50%;
   width: 480px;

@@ -71,39 +71,44 @@ export default function RegisterForm() {
     return (
         <form onSubmit={e => handleSubmit(e)} className={`${styles.card} ${styles.loginForm}`}>
             <div className={styles.formComponent}>
-                <label htmlFor={"email"}>Email</label>
-                <input onChange={e=> handleChange('email', e.target.value)} className={styles.formInput} id={"email"} type={"text"} />
-                <span className="error">{errors["email"]}</span>
-            </div>
-            <div className={styles.formComponent}>
-                <label htmlFor={"pseudo"}>Pseudo</label>
-                <input className={styles.formInput} onChange={e => handleChange('pseudo', e.target.value)} id={"pseudo"} type={"text"} />
-                <span className="error">{errors["pseudo"]}</span>
-            </div>
-            <div className={styles.formComponent}>
-                <label htmlFor={"password"}>Mot de passe</label>
-                <input className={styles.formInput} onChange={e => handleChange('password', e.target.value)} id={"password"} type={"password"} />
-                <span className="error">{errors["password"]}</span>
-            </div>
-            <div className={styles.formComponent}>
                 <label htmlFor={"nom"}>Nom</label>
-                <input className={styles.formInput} onChange={e => handleChange('nom', e.target.value)} id={"nom"} type={"text"} />
+                <input className={styles.formInput} onChange={e => handleChange('nom', e.target.value)} id={"nom"}
+                       type={"text"}/>
                 <span className="error">{errors["nom"]}</span>
             </div>
             <div className={styles.formComponent}>
                 <label htmlFor={"prenom"}>Prenom</label>
-                <input className={styles.formInput} onChange={e => handleChange('prenom', e.target.value)} id={"prenom"} type={"text"} />
+                <input className={styles.formInput} onChange={e => handleChange('prenom', e.target.value)} id={"prenom"}
+                       type={"text"}/>
                 <span className="error">{errors["prenom"]}</span>
+            </div>
+            <div className={styles.formComponent}>
+                <label htmlFor={"email"}>Email</label>
+                <input onChange={e => handleChange('email', e.target.value)} className={styles.formInput} id={"email"}
+                       type={"text"}/>
+                <span className="error">{errors["email"]}</span>
+            </div>
+            <div className={styles.formComponent}>
+                <label htmlFor={"pseudo"}>Pseudo</label>
+                <input className={styles.formInput} onChange={e => handleChange('pseudo', e.target.value)} id={"pseudo"}
+                       type={"text"}/>
+                <span className="error">{errors["pseudo"]}</span>
+            </div>
+            <div className={styles.formComponent}>
+                <label htmlFor={"password"}>Mot de passe</label>
+                <input className={styles.formInput} onChange={e => handleChange('password', e.target.value)}
+                       id={"password"} type={"password"}/>
+                <span className="error">{errors["password"]}</span>
             </div>
             <div className={styles.formComponent}>
                 <label htmlFor={"role"}>Vous êtes ?</label>
                 <div id={"role"} className={styles.formComponent} onChange={e => handleChange('role', e.target.value)}>
-                    <div><input type="radio" value="user" name="role" /> Utilisateur</div>
-                    <div><input type="radio" value="presta" name="role" /> Prestataire</div>
+                    <div><input type="radio" value="user" name="role"/> Utilisateur</div>
+                    <div><input type="radio" value="presta" name="role"/> Prestataire</div>
                 </div>
             </div>
-            <input className={styles.formButton} type="submit" value="Connexion" />
+            <input className={styles.formButton} type="submit" value="Connexion"/>
         </form>
-        )
+    )
 
 }
