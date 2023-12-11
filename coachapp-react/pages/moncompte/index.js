@@ -6,7 +6,7 @@ import Navbar from "@/components/UIComponents/navbar";
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Admin() {
+export default function Moncompte() {
     return (
         <>
             <Head>
@@ -18,7 +18,7 @@ export default function Admin() {
             <main className={`${styles.main} ${inter.className}`}>
                 <Navbar/>
                 <div className={`${styles.center} ${styles.marginAuto}`}>
-                    ADMIN
+                    COMPTES
                 </div>
             </main>
         </>

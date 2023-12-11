@@ -3,8 +3,41 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
   min-height: 100vh;
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  transition: box-shadow 200ms;
+}
+
+.nav:hover {
+  box-shadow: 0 0 10px gray;
+}
+
+.link {
+  padding: 20px;
+  height: fit-content;
+  text-align: center;
+  transition: box-shadow 200ms;
+}
+
+.link:hover {
+  background-color: rgb(180, 185, 188, 0.2);
+}
+
+.loginFormContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formTitle {
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .description {
