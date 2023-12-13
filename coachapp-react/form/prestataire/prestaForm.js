@@ -1,5 +1,5 @@
 import styles from '@/styles/Home.module.css'
-import usePrestaFormController from "@/controller/register/registerPrestaFormController";
+import usePrestaFormController from "@/controller/prestataire/form/prestaFormController";
 
 
 export default function PrestaForm() {

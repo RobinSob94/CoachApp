@@ -14,8 +14,16 @@
   transition: box-shadow 200ms;
 }
 
-.nav:hover {
+.nav:hover, .adminNav:hover {
   box-shadow: 0 0 10px gray;
+}
+
+.adminNav {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  transition: box-shadow 200ms;
 }
 
 .link {

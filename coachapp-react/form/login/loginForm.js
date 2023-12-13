@@ -19,7 +19,7 @@ export default function LoginForm() {
                 <span className="error">{errors["email"]}</span>
             </div>
             <div className={styles.formComponent}>
-                <label htmlFor={"id"}>Mot de passe</label>
+                <label htmlFor={"password"}>Mot de passe</label>
                 <input className={styles.formInput} onChange={e => setPassword(e.target.value)} type={"password"}/>
                 <span className="error">{errors["password"]}</span>
 

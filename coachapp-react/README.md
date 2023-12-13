@@ -38,3 +38,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+# Liens utiles:
+ - Context react --> https://react.dev/reference/react/useContext, https://react.dev/learn/passing-data-deeply-with-context
+ - State inter composants --> https://react.dev/learn/sharing-state-between-components
+ - Axios et Next.js --> https://docs.strapi.io/dev-docs/integrations/next-jss

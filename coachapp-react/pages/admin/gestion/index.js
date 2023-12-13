@@ -3,6 +3,7 @@ import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import { Inter } from 'next/font/google';
 import Navbar from "@/components/UIComponents/navbar";
+import AdminNavbar from "@/components/UIComponents/adminNavbar";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,6 +18,7 @@ export default function Admin() {
             </Head>
             <main className={`${styles.main} ${inter.className}`}>
                 <Navbar/>
+                <AdminNavbar/>
                 <div className={`${styles.center} ${styles.marginAuto}`}>
                     GESTION
                 </div>
