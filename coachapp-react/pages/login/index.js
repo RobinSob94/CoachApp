@@ -13,7 +13,7 @@ export default function Login() {
         <>
             <Head>
                 <title>Login</title>
-                <meta name="description" content="Coach app's login page" />
+                <meta name="connexion" content="page de connexion" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>

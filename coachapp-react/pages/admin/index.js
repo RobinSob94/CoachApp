@@ -10,8 +10,8 @@ export default function Admin() {
     return (
         <>
             <Head>
-                <title>Mon compte</title>
-                <meta name="mon compte" content="page de compte personnel"/>
+                <title>Administrateur</title>
+                <meta name="admin" content="page d'administration"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>

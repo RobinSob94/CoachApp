@@ -12,8 +12,8 @@ export default function Prestataire() {
     return (
         <>
             <Head>
-                <title>Regiter</title>
-                <meta name="description" content="Coach app's register page" />
+                <title>Prestataire inscription</title>
+                <meta name="inscription prestataire" content="page d'enregistrement d'un prestataire" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>

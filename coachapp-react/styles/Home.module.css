@@ -18,6 +18,10 @@
   box-shadow: 0 0 10px gray;
 }
 
+.linkIsActive {
+  background-color: rgb(180, 185, 188, 0.2);
+}
+
 .adminNav {
   display: flex;
   gap: 10px;

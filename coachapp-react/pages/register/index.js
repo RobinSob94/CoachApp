@@ -13,7 +13,7 @@ export default function Register() {
         <>
             <Head>
                 <title>Regiter</title>
-                <meta name="description" content="Coach app's register page" />
+                <meta name="inscription" content="page d'inscription" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>

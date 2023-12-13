@@ -1,21 +1,15 @@
 import styles from '@/styles/Home.module.css';
 import Link from "next/link";
+import NavbarLink from "@/components/UIComponents/navbarLink";
 
 export default function Navbar() {
     return (
         <nav className={styles.nav}>
-            <Link className={`${styles.siteName} ${styles.link}`} href={"/main"}>
-                CoachApp
-            </Link>
-            <Link className={styles.link} href={"/admin"}>
-                Admin
-            </Link>
-            <Link className={styles.link} href={'/moncompte'}>
-                Mon compte
-            </Link>
-            <Link className={styles.link} href={"/login"}>
-                Login
-            </Link>
+            <NavbarLink lien={"/main"} nomLien={"CoachApp"} />
+            <NavbarLink lien={"/admin"} nomLien={"Administrateur"} />
+            <NavbarLink lien={"/moncompte"} nomLien={"Moncompte"} />
+            <NavbarLink lien={"/prestataire"} nomLien={"Prestataire"} />
+            <NavbarLink lien={"/reservation"} nomLien={"Réserver"} />
         </nav>
     )
 }

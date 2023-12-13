@@ -11,7 +11,7 @@ export default function Admin() {
     return (
         <>
             <Head>
-                <title>ADMIN</title>
+                <title>Gestion des données</title>
                 <meta name="Administrateur/gestion" content="page admin/gestion"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="icon" href="/favicon.ico"/>
