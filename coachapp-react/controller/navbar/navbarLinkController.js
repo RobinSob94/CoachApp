@@ -11,7 +11,6 @@ export default function useNavbarLinkController() {
     useEffect(() => {
         setActualPath(asPath.split('#')[0].split('?')[0]);
     }, [pathName]);
-    console.log("Actual " + actualPath)
     return {
         actualPath
     }
