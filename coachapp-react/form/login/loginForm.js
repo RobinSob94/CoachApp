@@ -4,25 +4,27 @@ import useLoginController from "@/controller/login/loginFormController";
 
 export default function LoginForm() {
     const {
-        email,
         setEmail,
-        password,
         setPassword,
         errors,
         onSubmit
     } = useLoginController()
 
     return (
-    <form onSubmit={e => onSubmit(e)} className={`${styles.card} ${styles.loginForm}`}>
-        <div className={styles.formComponent}>
-            <label htmlFor={"email"}>Email</label>
-            <input value={email} className={styles.formInput} onChange={e => setEmail(e.target.value)} id={"email"} type={"text"} />
-        </div>
-        <div className={styles.formComponent}>
-            <label htmlFor={"id"}>Mot de passe</label>
-            <input value={password} className={styles.formInput} onChange={e =>setPassword(e.target.value)} type={"password"}/>
-        </div>
-        <input className={styles.formButton} type="submit" value="Connexion" />
-    </form>
-)
+        <form onSubmit={e => onSubmit(e)} className={`${styles.card} ${styles.loginForm}`}>
+            <div className={styles.formComponent}>
+                <label htmlFor={"email"}>Email</label>
+                <input className={styles.formInput} onChange={e => setEmail(e.target.value)} id={"email"}
+                       type={"text"}/>
+                <span className="error">{errors["email"]}</span>
+            </div>
+            <div className={styles.formComponent}>
+                <label htmlFor={"id"}>Mot de passe</label>
+                <input className={styles.formInput} onChange={e => setPassword(e.target.value)} type={"password"}/>
+                <span className="error">{errors["password"]}</span>
+
+            </div>
+            <input className={styles.formButton} type="submit" value="Connexion"/>
+        </form>
+    )
 }

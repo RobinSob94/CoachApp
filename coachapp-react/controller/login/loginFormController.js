@@ -57,9 +57,7 @@ export default function useLoginController() {
     }
 
     return {
-        email,
         setEmail,
-        password,
         setPassword,
         errors,
         onSubmit
