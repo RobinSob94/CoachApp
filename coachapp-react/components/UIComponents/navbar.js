@@ -7,7 +7,7 @@ export default function Navbar() {
         <nav className={styles.nav}>
             <NavbarLink lien={"/main"} nomLien={"CoachApp"} />
             <NavbarLink lien={"/admin"} nomLien={"Administrateur"} />
-            <NavbarLink lien={"/moncompte"} nomLien={"Moncompte"} />
+            <NavbarLink lien={"/moncompte"} nomLien={"Mon compte"} />
             <NavbarLink lien={"/prestataire"} nomLien={"Prestataire"} />
             <NavbarLink lien={"/reservation"} nomLien={"Réserver"} />
         </nav>
