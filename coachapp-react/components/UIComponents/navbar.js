@@ -19,3 +19,8 @@ export default function Navbar() {
         </nav>
     )
 }
+
+/* TODO: Faire passer ce composant en MVVC en mettant un json avec les entrées de routes et lier ce JSON à ce fichier
+        puis boucler avec un .map sur le JSON afin d'en extraire et de créer chaque lien individyellement à l'aide
+        du composant Link de next.
+*/
