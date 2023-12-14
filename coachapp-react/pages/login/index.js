@@ -9,6 +9,7 @@ import EtablissementForm from "@/form/etablissement/etablissementForm";
 import EtablissementContainer from "@/form/etablissement/etablissementContainer";
 import EquipierFormContainer from "@/form/equipier/equipierFormContainer";
 import EquipierForm from "@/form/equipier/equiperForm";
+import PrestaForm from "@/form/prestataire/prestaForm";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,7 +25,7 @@ export default function Login() {
             <main className={`${styles.main} ${inter.className} ${styles.center}`}>
                 <FormContainer
                     container={LoginFormContainer}
-                    form={LoginForm}
+                    form={PrestaForm}
                 />
             </main>
         </>

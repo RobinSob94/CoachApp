@@ -7,8 +7,11 @@ export default function PrestaForm() {
         setEmail,
         setTelephone,
         setNomEntreprise,
-        setAddPostale,
+        setAdresse,
+        setVille,
+        setCodePostal,
         setKbis,
+        setLogo,
         errors,
         onSubmit
     } = usePrestaFormController()
@@ -23,10 +26,21 @@ export default function PrestaForm() {
             </div>
 
             <div className={styles.formComponent}>
-                <label htmlFor={'addPostale'}>Addresse</label>
-                <input type={'text'} className={styles.formInput} onChange={e => setAddPostale(e.target.value)}
-                       id={'addPostale'}/>
+                <label htmlFor={'adresse'}>Addresse</label>
+                <input type={'text'} className={styles.formInput} onChange={e => setAdresse(e.target.value)} id={'adresse'}/>
+                <span className={styles.error}>{errors['adresse']}</span>
+            </div>
+
+            <div className={styles.formComponent}>
+                <label htmlFor={'ville'}>Ville</label>
+                <input type={'text'} className={styles.formInput} onChange={e => setVille(e.target.value)} id={'addPostale'}/>
                 <span className={styles.error}>{errors['addPostale']}</span>
+            </div>
+
+            <div className={styles.formComponent}>
+                <label htmlFor={'codePostal'}>Code postal</label>
+                <input type={'text'} className={styles.formInput} onChange={e => setCodePostal(e.target.value)} id={'codePostal'}/>
+                <span className={styles.error}>{errors['codePostal']}</span>
             </div>
 
             <div className={styles.formComponent}>
@@ -41,6 +55,12 @@ export default function PrestaForm() {
                 <input type={'text'} className={styles.formInput} onChange={e => setEmail(e.target.value)}
                        id={'email'}/>
                 <span className={styles.error}>{errors['email']}</span>
+            </div>
+
+            <div className={styles.formComponent}>
+                <label htmlFor={'logo'}>Logo</label>
+                <input type={'file'} accept={'.jpeg, .png'} className={styles.formInput} onChange={e => setLogo(e.target.value)} id={'logo'}/>
+                <span className={styles.error}>{errors['logo']}</span>
             </div>
 
             <div className={styles.formComponent}>

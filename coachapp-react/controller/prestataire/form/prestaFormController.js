@@ -7,8 +7,11 @@ import {useRouter} from "next/navigation";
 export default function usePrestaFormController() {
     const [email, setEmail] = useState('')
     const [telephone, setTelephone] = useState('')
-    const [addPostale, setAddPostale] = useState('')
+    const [adresse, setAdresse] = useState('')
     const [nomEntreprise, setNomEntreprise] = useState('')
+    const [ville, setVille] = useState('')
+    const [codePostal, setCodePostal] = useState('')
+    const [logo, setLogo] = useState({})
     const [kbis, setKbis] = useState({})
     const [errors, setErrors] = useState({})
 
@@ -52,9 +55,19 @@ export default function usePrestaFormController() {
             }
         }
 
-        if(!addPostale){
+        if(!adresse){
             formIsValid = false
-            formErrors["addPostale"] = "Cannot be empty"
+            formErrors["adresse"] = "Cannot be empty"
+        }
+
+        if(!codePostal){
+            formIsValid = false
+            formErrors["codePostal"] = "Cannot be empty"
+        }
+
+        if(!ville){
+            formIsValid = false
+            formErrors["ville"] = "Cannot be empty"
         }
 
         if(!nomEntreprise){
@@ -84,10 +97,13 @@ export default function usePrestaFormController() {
 
     return {
         setEmail,
-        setKbis,
         setTelephone,
-        setAddPostale,
         setNomEntreprise,
+        setAdresse,
+        setVille,
+        setCodePostal,
+        setKbis,
+        setLogo,
         errors,
         onSubmit
     }
