@@ -1,7 +1,7 @@
 import React from "react";
 import styles from '@/styles/Home.module.css'
 
-export default function LoginContainer({ children }) {
+export default function LoginFormContainer({ children }) {
     return (
         <div className={styles.loginFormContainer}>
             <div className={styles.formTitle}>Connexion</div>

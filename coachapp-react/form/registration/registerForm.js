@@ -14,7 +14,7 @@ export default function RegisterForm() {
     } = useRegisterController()
 
     return (
-        <form onSubmit={e => onSubmit(e)} className={`${styles.card} ${styles.loginForm}`}>
+        <form onSubmit={e => onSubmit(e)} className={`${styles.card} ${styles.form}`}>
             <div className={styles.formComponent}>
                 <label htmlFor={"nom"}>Nom</label>
                 <input className={styles.formInput} onChange={e => setNom(e.target.value)} id={"nom"}

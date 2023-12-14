@@ -14,7 +14,7 @@ export default function PrestaForm() {
     } = usePrestaFormController()
 
     return (
-        <form className={`${styles.card} ${styles.prestaForm}`} onSubmit={e => onSubmit(e)}>
+        <form className={`${styles.card} ${styles.form}`} onSubmit={e => onSubmit(e)}>
             <div className={styles.formComponent}>
                 <label htmlFor={'nomEntreprise'}>Nom de l'entreprise</label>
                 <input type={'text'} className={styles.formInput} onChange={e => setNomEntreprise(e.target.value)}

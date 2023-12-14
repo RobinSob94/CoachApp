@@ -46,4 +46,15 @@ export default function useEtablissementFormController() {
             alert('Form has errors')
         }
     }
+
+    return {
+        setNomEtablissement,
+        setAdresse,
+        setOuverture,
+        heureOuverture,
+        setFermeture,
+        heureFermeture,
+        errors,
+        onSubmit
+    }
 }

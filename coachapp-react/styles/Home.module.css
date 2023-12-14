@@ -59,10 +59,23 @@
   gap: 10px;
 }
 
-.loginForm {
+.etablissementFormContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.equipierFormContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  margin: 0 auto;
 }
 
 .prestaForm {
