@@ -25,7 +25,7 @@ export default function Login() {
             <main className={`${styles.main} ${inter.className} ${styles.center}`}>
                 <FormContainer
                     container={LoginFormContainer}
-                    form={PrestaForm}
+                    form={LoginForm}
                 />
             </main>
         </>
