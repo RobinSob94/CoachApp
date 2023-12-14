@@ -5,6 +5,7 @@ export default function useEtablissementFormController() {
     const [adresse, setAdresse] = useState('')
     const [heureOuverture, setOuverture] = useState('')
     const [heureFermeture, setFermeture] = useState('')
+    const [prixH, setPrixH] = useState(0)
     const [errors, setErrors] = useState({})
 
     function handleValidation() {
@@ -18,12 +19,17 @@ export default function useEtablissementFormController() {
 
         if(!adresse) {
             formIsValid = false;
-            formErrors["adresse"] = "Cannot be empty";
+            formErrors["adresseEtablissement"] = "Cannot be empty";
         }
 
         if(!heureOuverture) {
             formIsValid = false;
             formErrors["heureOuverture"] = "Cannot be empty";
+        }
+
+        if(!prixH){
+            formIsValid = false
+            formErrors["prixH"] = "Cannot be empty"
         }
 
         if(!heureFermeture) {
@@ -54,6 +60,7 @@ export default function useEtablissementFormController() {
         heureOuverture,
         setFermeture,
         heureFermeture,
+        setPrixH,
         errors,
         onSubmit
     }
