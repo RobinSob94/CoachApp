@@ -24,31 +24,31 @@ export default function Moncompte() {
             </Head>
             <main className={`${styles.main} ${inter.className}`}>
                 <Navbar/>
-                <div className={`${styles.center} ${styles.moncompteUserInfo}`}>
-                    <div>
-                        <img src={"../../public/img.png"} alt={"Profile picture of user " + userInformations.pseudo} />
-                        <div>
-                            <table>
-                                <tr>
-                                    <td>Nom:</td>
-                                    <td>{userInformations.nom}</td>
-                                </tr>
-                                <tr>
-                                    <td>Prénom:</td>
-                                    <td>{userInformations.prenom}</td>
-                                </tr>
-                                <tr>
-                                    <td>Email:</td>
-                                    <td>{userInformations.email}</td>
-                                </tr>
-                                <tr>
-                                    <td>Pseudo:</td>
-                                    <td>{userInformations.pseudo}</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+                <div className={`${styles.center} ${styles.centerFixed}`}>
 
+                </div>
+                <div className={styles.moncompteUserInfo}>
+                    <img src={"../../public/img.png"} alt={"Profile picture of user " + userInformations.pseudo}/>
+                    <div>
+                        <table>
+                            <tr>
+                                <td>Nom:</td>
+                                <td>{userInformations.nom}</td>
+                            </tr>
+                            <tr>
+                                <td>Prénom:</td>
+                                <td>{userInformations.prenom}</td>
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td>{userInformations.email}</td>
+                            </tr>
+                            <tr>
+                                <td>Pseudo:</td>
+                                <td>{userInformations.pseudo}</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </main>
         </>

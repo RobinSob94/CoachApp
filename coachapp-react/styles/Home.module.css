@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   min-height: 100vh;
 }
 
@@ -39,6 +38,17 @@
 
 .link:hover {
   background-color: rgb(180, 185, 188, 0.2);
+}
+
+.center.centerFixed {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+}
+
+.moncompteUserInfo {
+  margin: 5% auto auto 5%;
+  width: fit-content;
 }
 
 .loginFormContainer {
