@@ -1,19 +1,21 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
-import Link from "next/link";
 import { Inter } from 'next/font/google';
 import Navbar from "@/components/UIComponents/navbar";
 import useMonCompteController from "@/controller/moncompte/monCompteController";
-import Image from "next/image";
-
+import UserInfo from "@/components/UIComponents/userInfo";
+import ChangeUserInfoForm from "@/form/user/changeUserInfo";
+import RegisterForm from "@/form/registration/registerForm";
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Moncompte() {
     const {
-        userInformations
+        userInformations,
+        resetPassword,
+        userForm,
+        seeUserForm
     } = useMonCompteController()
 
-    console.log(userInformations.nom)
     return (
         <>
             <Head>
@@ -22,34 +24,22 @@ export default function Moncompte() {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            <main className={`${styles.main} ${inter.className}`}>
+            <main className={`${styles.main} ${inter.className} ${styles.moncompte}`}>
                 <Navbar/>
-                <div className={`${styles.center} ${styles.centerFixed}`}>
-
-                </div>
+                <div className={`${styles.center} ${styles.centerFixed}`}></div>
                 <div className={styles.moncompteUserInfo}>
-                    <img src={"../../public/img.png"} alt={"Profile picture of user " + userInformations.pseudo}/>
-                    <div>
-                        <table>
-                            <tr>
-                                <td>Nom:</td>
-                                <td>{userInformations.nom}</td>
-                            </tr>
-                            <tr>
-                                <td>Prénom:</td>
-                                <td>{userInformations.prenom}</td>
-                            </tr>
-                            <tr>
-                                <td>Email:</td>
-                                <td>{userInformations.email}</td>
-                            </tr>
-                            <tr>
-                                <td>Pseudo:</td>
-                                <td>{userInformations.pseudo}</td>
-                            </tr>
-                        </table>
-                    </div>
+                    <UserInfo
+                        nom={userInformations.nom}
+                        pseudo={userInformations.pseudo}
+                        prenom={userInformations.prenom}
+                        email={userInformations.email}
+                        image={userInformations.image}
+                        role={userInformations.role} />
+                    <button className={styles.resetPasswordButton} onClick={resetPassword}>Reset Password</button>
+                    <button className={styles.resetPasswordButton} onClick={userForm}>Change user info</button>
                 </div>
+
+                {seeUserForm && <ChangeUserInfoForm userInfo={userInformations}/>}
             </main>
         </>
     )

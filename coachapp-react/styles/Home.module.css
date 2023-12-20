@@ -46,9 +46,14 @@
   top: 50%;
 }
 
+.moncompte {
+  justify-content: normal;
+}
+
 .moncompteUserInfo {
-  margin: 5% auto auto 5%;
+  margin: 5% auto 5% 5%;
   width: fit-content;
+  height: fit-content;
 }
 
 .loginFormContainer {
@@ -109,6 +114,12 @@
   width: fit-content;
   padding: 5px;
   margin: 0 auto;
+}
+
+.resetPasswordButton {
+  width: fit-content;
+  padding: 5px;
+  margin: 5% auto auto 0;
 }
 
 .formTitle {
