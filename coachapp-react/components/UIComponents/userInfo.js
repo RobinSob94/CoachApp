@@ -4,10 +4,9 @@ import Image from "next/image";
 
 
 export default function UserInfo({...props}){
-    console.log(img)
     return (
         <div>
-            <Image className={styles.profilePicture} src={props.image} alt={"Profile picture of user " + props.pseudo} />
+            {/*<Image className={styles.profilePicture} src={props.image} alt={"Profile picture of user " + props.pseudo} />*/}
             <div>
                 <table>
                     <tbody>
