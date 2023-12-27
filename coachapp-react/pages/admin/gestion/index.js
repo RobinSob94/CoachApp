@@ -7,7 +7,8 @@ import AdminNavbar from "@/components/UIComponents/adminNavbar";
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Admin() {
+export default function AdminGestion() {
+
     return (
         <>
             <Head>
@@ -16,12 +17,15 @@ export default function Admin() {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            <main className={`${styles.main} ${inter.className}`}>
+            <main className={`${styles.main} ${inter.className} ${styles.adminGestion}`}>
                 <Navbar/>
                 <AdminNavbar/>
-                <div className={`${styles.center} ${styles.marginAuto}`}>
-                    GESTION
+                <div className={`${styles.center} ${styles.marginAuto} ${styles.centerFixed}`}>
                 </div>
+                <Link className={styles.formButton} href={"/admin/gestion/user"}>Utilisateur</Link>
+                <Link className={styles.formButton} href={"/admin/gestion/prestataire"}>Prestataire</Link>
+                <Link className={styles.formButton} href={"/admin/gestion/etablissement"}>Etablissement</Link>
+                <Link className={styles.formButton} href={"/admin/gestion/equipier"}>Equipiers</Link>
             </main>
         </>
     )

@@ -55,6 +55,10 @@
   justify-content: normal;
 }
 
+.adminGestion {
+  justify-content: normal;
+}
+
 .moncompteUserInfo {
   margin: 5% auto 5% 5%;
   width: fit-content;
