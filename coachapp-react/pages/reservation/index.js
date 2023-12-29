@@ -6,7 +6,10 @@ import Navbar from "@/components/UIComponents/navbar";
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Prestataire() {
+export default function Reservation() {
+    // const {
+    //
+    // } = useReservationController()
     return (
         <>
             <Head>
@@ -18,8 +21,8 @@ export default function Prestataire() {
             <main className={`${styles.main} ${inter.className}`}>
                 <Navbar />
                 <div className={`${styles.center} ${styles.marginAuto}`}>
-                    RESERVATIONS
                 </div>
+
             </main>
         </>
     )
