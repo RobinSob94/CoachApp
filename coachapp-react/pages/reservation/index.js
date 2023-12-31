@@ -16,9 +16,6 @@ export default function Reservation({id_Hebergement = 0}) {
         setDateHoraire,
         equipiers,
     } = useReservationController()
-
-    console.log(equipiers)
-
     return (
         <>
             <Head>
@@ -31,7 +28,9 @@ export default function Reservation({id_Hebergement = 0}) {
                 <Navbar />
                 <div className={`${styles.center} ${styles.marginAuto}`}>
                 </div>
-                {equipiers !== null ? <div>HELLO</div> : <div>Waiting...</div>}
+                {equipiers !== null ?
+                    equipiers.map(equipier => <div>Nom: {equipier.nom}</div>)
+                    : <div>Waiting...</div>}
             </main>
         </>
     )

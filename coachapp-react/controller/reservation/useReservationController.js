@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {log} from "next/dist/server/typescript/utils";
 
 
 export default function useReservationController() {
@@ -6,13 +7,8 @@ export default function useReservationController() {
     const [dateHoraire, setDateHoraire] = useState(new Date())
     const [equipiers, setEquipiers] = useState(null)
 
-    async function getEquipier(id_hebergement)  {
-        /*TODO: Appel du view model pour récupérer les équipier en fonction de l'hébergement qui sera fournis
-        *   La fonction retournera un tableau ou un JSON détaillant les différentes horaires et jours de travail
-            en fonction des des équipiers.*/
-
-        return await setTimeout(function(){
-            return [
+    function equipiersCollection() {
+        setEquipiers( [
                 {
                     "id": 1,
                     "nom": "Jean",
@@ -33,18 +29,21 @@ export default function useReservationController() {
                     "nom": "Chloé",
                     "jour_travail": ["Lundi", "Mardi", "Jeudi", "Samedi"]
                 }
-            ]
-
-        }, 3000)
+            ])
     }
-    console.log(equipiers)
+
+
+    async function getEquipier(id_hebergement) {
+        /*TODO: Appel du view model pour récupérer les équipier en fonction de l'hébergement qui sera fournis
+        *   La fonction retournera un tableau ou un JSON détaillant les différentes horaires et jours de travail
+            en fonction des des équipiers.*/
+
+        await equipiersCollection()
+    }
 
     useEffect(() => {
-    setEquipiers(getEquipier(0))
+    getEquipier(1)
     }, []);
-
-    console.log(equipiers)
-
 
     return {
         service,
