@@ -23,7 +23,6 @@ const [display, setDisplay] = useState(false)
     fetchP()
         // TODO: Voir avec ce tuto https://devtrium.com/posts/async-functions-useeffect
     }, []);
-    console.log(prestataires)
 
     return (
         <>
