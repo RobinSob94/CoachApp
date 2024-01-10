@@ -1,9 +1,9 @@
 export default function usePrestaModel() {
 
     function fetchPrestaUnique() {
-            return [{"id": 1, "nom": "toto"},
-             {"id": 2, "nom": "azeaze"},
-             {"id": 3, "nom": "alalad"}]
+            return [{"id": 1, "nom": "toto", "img": "azeeaz"},
+             {"id": 2, "nom": "azeaze", "img": "woll"},
+             {"id": 3, "nom": "alalad", "img": "cnjzvbhk"}]
         }
 
 
