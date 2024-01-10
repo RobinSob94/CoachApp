@@ -6,8 +6,7 @@ import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Prestataire({presta= {nom: "zae", img: "zeazezae"}, prestataires}) {
-    console.log(prestataires)
+export default function Prestataire({presta, prestataires}) {
     return (
         <>
             <Head>

@@ -45,10 +45,16 @@ export default function Reservation({id_Hebergement = 0}) {
                     <tbody>
                         {equipiers !== null ?
                             equipiers.map(equipier =>
-                                <div key={equipier.id}>
-                                    <div style={{border: "1px white solid"}}>{equipier.id}</div>
-                                    <div style={{border: "1px white solid"}}>{equipier.nom}</div>
-                                    <div style={{border: "1px white solid"}}>{equipier.jour_travail}</div></div>): <div>Waiting...</div>}
+                                <tr key={equipier.id}>
+                                    <td style={{border: "1px white solid"}}>{equipier.id}</td>
+                                    <td style={{border: "1px white solid"}}>{equipier.nom}</td>
+                                    <td style={{border: "1px white solid"}}>{equipier.jour_travail}</td></tr>)
+                            :
+                                <tr>
+                                    <td>Waiting...</td>
+                                    <td>Waiting...</td>
+                                    <td>Waiting...</td>
+                                </tr>}
                     </tbody>
                 </table>
             </main>

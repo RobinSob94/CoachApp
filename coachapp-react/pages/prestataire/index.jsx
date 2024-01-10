@@ -24,7 +24,6 @@ export default function PrestaContainer() {
     }
 
     fetchP()
-        // TODO: Voir avec ce tuto https://devtrium.com/posts/async-functions-useeffect
     }, []);
 
     return (
