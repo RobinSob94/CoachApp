@@ -34,10 +34,6 @@ export default function useReservationController() {
 
 
     async function getEquipier(id_hebergement) {
-        /*TODO: Appel du view model pour récupérer les équipier en fonction de l'hébergement qui sera fournis
-        *   La fonction retournera un tableau ou un JSON détaillant les différentes horaires et jours de travail
-            en fonction des des équipiers.*/
-
         await equipiersCollection()
     }
 

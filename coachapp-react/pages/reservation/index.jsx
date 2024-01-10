@@ -28,9 +28,29 @@ export default function Reservation({id_Hebergement = 0}) {
                 <Navbar />
                 <div className={`${styles.center} ${styles.marginAuto}`}>
                 </div>
-                {equipiers !== null ?
-                    equipiers.map(equipier => <div>Nom: {equipier.nom}</div>)
-                    : <div>Waiting...</div>}
+                <table>
+                    <thead>
+                        <tr>
+                            <td>
+                                Id
+                            </td>
+                            <td>
+                                Nom
+                            </td>
+                            <td>
+                                Jours travail
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {equipiers !== null ?
+                            equipiers.map(equipier =>
+                                <div key={equipier.id}>
+                                    <div style={{border: "1px white solid"}}>{equipier.id}</div>
+                                    <div style={{border: "1px white solid"}}>{equipier.nom}</div>
+                                    <div style={{border: "1px white solid"}}>{equipier.jour_travail}</div></div>): <div>Waiting...</div>}
+                    </tbody>
+                </table>
             </main>
         </>
     )
