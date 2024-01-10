@@ -1,63 +1,49 @@
-import Head from "next/head";
-import styles from "@/styles/Home.module.css";
 import { Inter } from 'next/font/google';
-import Navbar from "@/components/UIComponents/navbar";
-import useReservationController from "@/controller/reservation/useReservationController";
-import {log} from "next/dist/server/typescript/utils";
+import Reservation from "@/pages/reservation/reservation";
+import {useEffect, useState} from "react";
+
+export default function ReservationContainer({id_hebergement= 0}) {
+    const [service, setService] = useState("")
+    const [dateHoraire, setDateHoraire] = useState(new Date())
+    const [equipiers, setEquipiers] = useState(null)
+
+    function equipiersCollection() {
+        setEquipiers( [
+            {
+                "id": 1,
+                "nom": "Jean",
+                "jour_travail": ["Lundi", "Mardi", "Mercredi", "Dimanche"]
+            },
+            {
+                "id": 2,
+                "nom": "Eude",
+                "jour_travail": ["Lundi", "Mardi", "Jeudi", "Vendredi"]
+            },
+            {
+                "id": 3,
+                "nom": "Myreille",
+                "jour_travail": ["Lundi", "Mardi", "Mercredi", "Vendredi"]
+            },
+            {
+                "id": 4,
+                "nom": "Chloé",
+                "jour_travail": ["Lundi", "Mardi", "Jeudi", "Samedi"]
+            }
+        ])
+    }
 
 
-const inter = Inter({ subsets: ['latin'] })
+    async function getEquipier(id_hebergement) {
+        await equipiersCollection()
+    }
 
-export default function Reservation({id_Hebergement = 0}) {
-    const {
-        service,
-        setService,
-        dateHoraire,
-        setDateHoraire,
-        equipiers,
-    } = useReservationController()
+    useEffect(() => {
+        getEquipier(1)
+    }, []);
+
     return (
         <>
-            <Head>
-                <title>Réservations</title>
-                <meta name="reserver" content="page de réservation client"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                <link rel="icon" href="/favicon.ico"/>
-            </Head>
-            <main className={`${styles.main} ${inter.className}`}>
-                <Navbar />
-                <div className={`${styles.center} ${styles.marginAuto}`}>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>
-                                Id
-                            </td>
-                            <td>
-                                Nom
-                            </td>
-                            <td>
-                                Jours travail
-                            </td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {equipiers !== null ?
-                            equipiers.map(equipier =>
-                                <tr key={equipier.id}>
-                                    <td style={{border: "1px white solid"}}>{equipier.id}</td>
-                                    <td style={{border: "1px white solid"}}>{equipier.nom}</td>
-                                    <td style={{border: "1px white solid"}}>{equipier.jour_travail}</td></tr>)
-                            :
-                                <tr>
-                                    <td>Waiting...</td>
-                                    <td>Waiting...</td>
-                                    <td>Waiting...</td>
-                                </tr>}
-                    </tbody>
-                </table>
-            </main>
+            <Reservation equipiers={equipiers}/>
         </>
     )
 }
