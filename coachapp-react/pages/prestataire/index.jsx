@@ -6,16 +6,19 @@ import Prestataire from "@/pages/prestataire/prestataire";
 
 export default function PrestaContainer() {
     const {
-        fetchPrestaUnique
+        fetchPrestaUnique,
+        fetchPrestas
     } = useprestaModel()
 
-    // const [presta, setPresta] = useState({})
-const [prestataires, setPrestataires] = useState([])
-const [display, setDisplay] = useState(false)
+    const [prestaUnique, setPrestaUnique] = useState({})
+    const [prestataires, setPrestataires] = useState([])
+    const [display, setDisplay] = useState(false)
 
     useEffect(() => {
     const fetchP = async () => {
-        const data = await fetchPrestaUnique()
+        const dataUnique = await fetchPrestaUnique()
+        const data = await fetchPrestas()
+        setPrestaUnique(dataUnique)
         setDisplay(true)
         return setPrestataires(data)
     }
@@ -27,7 +30,7 @@ const [display, setDisplay] = useState(false)
     return (
         <>
             {display && <Prestataire
-                // presta={presta}
+                presta={prestaUnique}
                 prestataires={prestataires}/>}
         </>
     )
