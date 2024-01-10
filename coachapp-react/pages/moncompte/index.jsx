@@ -1,46 +1,43 @@
-import Head from "next/head";
-import styles from "@/styles/Home.module.css";
-import { Inter } from 'next/font/google';
-import Navbar from "@/components/UIComponents/navbar";
-import useMonCompteController from "@/controller/moncompte/monCompteController";
-import UserInfo from "@/components/UIComponents/userInfo";
-import ChangeUserInfoForm from "@/form/user/changeUserInfo";
-import RegisterForm from "@/form/registration/registerForm";
-const inter = Inter({ subsets: ['latin'] })
+import MonCompte from "@/pages/moncompte/MonCompte";
+import {useEffect, useState} from "react";
+import useUserModel from "@/models/user/userModel";
 
-export default function Moncompte() {
+
+export default function MoncompteContainer() {
     const {
-        userInformations,
-        resetPassword,
-        userForm,
-        seeUserForm
-    } = useMonCompteController()
+        fetchCurrentUser
+    } = useUserModel()
+
+    // const {user} = userInfo()
+    // const {isConnected} = useUserViewModel()
+    const [seeUserForm, setSeeUserForm] = useState(false)
+    const [currentUser, setCurrentUser] = useState({})
+    const resetPassword = function resetPassword(){
+        console.log("Password reset action")
+        //     TODO: Mettre un mailer afin d'envoyer un mail en récupérant les informations du USER (id du USER, nom, prénom, email) on attend pas de réponse pour cette fonction.
+        //     handleResetPassword(user.nom, user.prenom, user.email, user.id)
+    }
+
+    const userForm = function UserForm() {
+        {seeUserForm ? setSeeUserForm(false) : setSeeUserForm(true)}
+    }
+
+    useEffect(() => {
+        const fetchU = async () => {
+            const data = await fetchCurrentUser()
+            return setCurrentUser(data)
+        }
+
+        fetchU()
+    }, []);
 
     return (
         <>
-            <Head>
-                <title>Mon compte</title>
-                <meta name="mon compte" content="page de compte personnel"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                <link rel="icon" href="/favicon.ico"/>
-            </Head>
-            <main className={`${styles.main} ${inter.className} ${styles.moncompte}`}>
-                <Navbar/>
-                <div className={`${styles.center} ${styles.centerFixed}`}></div>
-                <div className={styles.moncompteUserInfo}>
-                    <UserInfo
-                        nom={userInformations.nom}
-                        pseudo={userInformations.pseudo}
-                        prenom={userInformations.prenom}
-                        email={userInformations.email}
-                        image={userInformations.image}
-                        role={userInformations.role} />
-                    <button className={styles.resetPasswordButton} onClick={resetPassword}>Reset Password</button>
-                    <button className={styles.resetPasswordButton} onClick={userForm}>Change user info</button>
-                </div>
-
-                {seeUserForm && <ChangeUserInfoForm userInfo={userInformations}/>}
-            </main>
+            <MonCompte
+                resetPassword={resetPassword}
+                seeUserForm={seeUserForm}
+                userForm={userForm}
+                userInformations={currentUser}/>
         </>
     )
 }
