@@ -1,21 +1,12 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
-import { Inter } from 'next/font/google';
 import Navbar from "@/components/UIComponents/navbar";
-import useMonCompteController from "@/controller/moncompte/monCompteController";
 import UserInfo from "@/components/UIComponents/userInfo";
 import ChangeUserInfoForm from "@/form/user/changeUserInfo";
-import RegisterForm from "@/form/registration/registerForm";
+import { Inter } from 'next/font/google';
+
 const inter = Inter({ subsets: ['latin'] })
-
-export default function Moncompte() {
-    const {
-        userInformations,
-        resetPassword,
-        userForm,
-        seeUserForm
-    } = useMonCompteController()
-
+export default function MonCompte({userInformations, resetPassword, userForm, seeUserForm}) {
     return (
         <>
             <Head>
