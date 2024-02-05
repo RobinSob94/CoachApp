@@ -19,7 +19,7 @@ export default function Prestataire({presta, prestataires}) {
                 <Navbar />
                 <div className={`${styles.center} ${styles.marginAuto}`}>
                 </div>
-                <div>
+                <div className={styles.prestaInfo}>
                     {presta && <div>Le nom {presta.nom} lien image {presta.img}</div>}
                     <table>
                         <thead>
