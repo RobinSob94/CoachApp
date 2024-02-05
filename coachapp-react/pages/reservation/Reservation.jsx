@@ -18,7 +18,7 @@ export default function Reservation({equipiers}) {
                 <Navbar />
                 <div className={`${styles.center} ${styles.marginAuto}`}>
                 </div>
-                <table>
+                <table className={styles.reservationTab}>
                     <thead>
                     <tr>
                         <td>
@@ -36,9 +36,9 @@ export default function Reservation({equipiers}) {
                     {equipiers !== null ?
                         equipiers.map(equipier =>
                             <tr key={equipier.id}>
-                                <td style={{border: "1px white solid"}}>{equipier.id}</td>
-                                <td style={{border: "1px white solid"}}>{equipier.nom}</td>
-                                <td style={{border: "1px white solid"}}>{equipier.jour_travail}</td></tr>)
+                                <td>{equipier.id}</td>
+                                <td>{equipier.nom}</td>
+                                <td>{equipier.jour_travail.map(jours => <p key={jours}>{jours}</p>)}</td></tr>)
                         :
                         <tr>
                             <td>Waiting...</td>

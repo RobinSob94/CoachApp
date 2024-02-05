@@ -207,7 +207,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: absolute;
+  left: 50vw;
+  top: 50vw;
   padding: 4rem 0;
 }
 
@@ -340,6 +342,17 @@
 
 .prestaInfo {
   margin: auto;
+}
+
+.reservationTab {
+  position: relative;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+.reservationTab td {
+  border: 1px solid white;
+  padding: 2px;
 }
 
 /* Tablet and Smaller Desktop */
