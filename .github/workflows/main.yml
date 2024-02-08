@@ -3,7 +3,7 @@ name: React CI
 on:
   push:
     branches:
-    - robin-cicd
+    - '!master'
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
         - name: Setup Node.js
           uses: actions/setup-node@v3
           with:
-            node-version: 20
+            node-version: 18.17.1
 
         - name: Install Dependencies
           run: cd coachapp-react && npm install
@@ -25,6 +25,5 @@ jobs:
         - name: Build
           run: cd coachapp-react && npm run build
 
-            
         - name: Test
           run: cd coachapp-react && npm test
