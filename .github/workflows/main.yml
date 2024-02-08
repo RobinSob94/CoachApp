@@ -23,8 +23,8 @@ jobs:
 
             
         - name: Build
-          run: npm run build
+          run: cd coachapp-react && npm run build
 
             
         - name: Test
-          run: npm test
+          run: cd coachapp-react && npm test
