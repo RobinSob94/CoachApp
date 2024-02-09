@@ -1,8 +1,5 @@
 import {useState} from "react";
-// import userViewModel --> de là on pourra retrouver le USER actuel avec une fonction
-// getUserId, quelque chose dans le genre.
 import {useRouter} from "next/navigation";
-// import usePrestaViewModel from "@/models/prestataire/prestaViewModel";
 
 export default function usePrestaFormController() {
     const [email, setEmail] = useState('')

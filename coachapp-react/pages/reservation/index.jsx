@@ -1,4 +1,4 @@
-import { Inter } from 'next/font/google';
+import React from "react";
 import Reservation from "@/pages/reservation/reservation";
 import {useEffect, useState} from "react";
 

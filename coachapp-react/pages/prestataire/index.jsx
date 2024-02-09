@@ -2,8 +2,7 @@
 import {useEffect, useState} from "react";
 import useprestaModel from "@/models/presta/prestaModel";
 import Prestataire from "@/pages/prestataire/prestataire";
-
-
+import React from "react";
 export default function PrestaContainer() {
     const {
         fetchPrestaUnique,

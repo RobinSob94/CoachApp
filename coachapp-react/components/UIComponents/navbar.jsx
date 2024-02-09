@@ -1,7 +1,6 @@
 import styles from '@/styles/Home.module.css';
-import Link from "next/link";
 import NavbarLink from "@/components/UIComponents/navbarLink";
-
+import React from "react";
 export default function Navbar() {
     return (
         <nav className={styles.nav}>

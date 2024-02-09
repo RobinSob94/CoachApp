@@ -1,5 +1,4 @@
 import {useState} from "react";
-// import useRegisterViewModel from "@/models/register/registerViewModel";
 import {useRouter} from "next/navigation";
 
 export default function useRegisterController() {

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Inter } from 'next/font/google';
 import Navbar from "@/components/UIComponents/navbar";
 import AdminNavbar from "@/components/UIComponents/adminNavbar";
-
+import React from "react";
 
 const inter = Inter({ subsets: ['latin'] })
 

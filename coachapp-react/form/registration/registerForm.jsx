@@ -1,5 +1,6 @@
 import styles from '@/styles/Home.module.css'
 import useRegisterController from "@/controller/register/registerFormController";
+import React from "react";
 
 export default function RegisterForm() {
     const {

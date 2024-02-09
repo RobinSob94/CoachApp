@@ -5,7 +5,7 @@ import AdminNavbar from "@/components/UIComponents/adminNavbar";
 import Link from "next/link";
 import EtablissementForm from "@/form/etablissement/etablissementForm";
 import {Inter} from "next/font/google";
-
+import React from "react";
 const inter = Inter({ subsets: ['latin'] })
 
 export default function GestionEtablissement({render, setRender}) {

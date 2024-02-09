@@ -4,7 +4,7 @@ import Navbar from "@/components/UIComponents/navbar";
 import UserInfo from "@/components/UIComponents/userInfo";
 import ChangeUserInfoForm from "@/form/user/changeUserInfo";
 import { Inter } from 'next/font/google';
-
+import React from "react";
 const inter = Inter({ subsets: ['latin'] })
 export default function MonCompte({userInformations, resetPassword, userForm, seeUserForm}) {
     return (

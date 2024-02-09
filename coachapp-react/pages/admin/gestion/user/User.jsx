@@ -5,7 +5,7 @@ import AdminNavbar from "@/components/UIComponents/adminNavbar";
 import Link from "next/link";
 import RegisterForm from "@/form/registration/registerForm";
 import { Inter } from 'next/font/google';
-
+import React from "react";
 const inter = Inter({ subsets: ['latin'] })
 
 export default function GestionUser({render, setRender}) {
