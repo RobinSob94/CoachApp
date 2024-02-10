@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
-import Navbar from "@/components/UIComponents/navbar";
+import NavbarContainer from "@/components/UIComponents/navbarContainer";
 import AdminNavbar from "@/components/UIComponents/adminNavbar";
 import Link from "next/link";
 import EtablissementForm from "@/form/etablissement/etablissementForm";
@@ -18,7 +18,7 @@ export default function GestionEtablissement({render, setRender}) {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <main className={`${styles.main} ${inter.className} ${styles.adminGestion}`}>
-                <Navbar/>
+                <NavbarContainer/>
                 <AdminNavbar/>
                 <div className={`${styles.center} ${styles.marginAuto} ${styles.centerFixed}`}>
                 </div>

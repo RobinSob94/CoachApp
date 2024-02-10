@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import { Inter } from 'next/font/google';
-import Navbar from "@/components/UIComponents/navbar";
+import NavbarContainer from "@/components/UIComponents/navbarContainer";
 import AdminNavbar from "@/components/UIComponents/adminNavbar";
 import React from "react";
 
@@ -19,7 +19,7 @@ export default function Admin_Gestion() {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <main className={`${styles.main} ${inter.className} ${styles.adminGestion}`}>
-                <Navbar/>
+                <NavbarContainer/>
                 <AdminNavbar/>
                 <div className={`${styles.center} ${styles.marginAuto} ${styles.centerFixed}`}>
                 </div>

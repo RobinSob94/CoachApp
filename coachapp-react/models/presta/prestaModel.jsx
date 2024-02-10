@@ -1,18 +1,25 @@
 export default function usePrestaModel() {
 
     function fetchPrestas() {
-            return [{"id": 1, "nom": "toto", "img": "azeeaz"},
-             {"id": 2, "nom": "azeaze", "img": "woll"},
-             {"id": 3, "nom": "alalad", "img": "cnjzvbhk"}]
+            return [
+                {id: 1, nom: "toto", img: "azeeaz"},
+                {id: 2, nom: "azeaze", img: "woll"},
+                {id: 3, nom: "alalad", img: "cnjzvbhk"}
+            ]
         }
 
-        function fetchPrestaUnique(){
-        return {"id": 4, "nom":"totototot", "img": "rarhziufni"}
+        function prestaUnique(id){
+            console.log('Un id: '+id)
+        return {
+            id: id,
+            nom:"totototot",
+            img: "rarhziufni"
+        }
         }
 
 
     return {
-        fetchPrestaUnique,
+        prestaUnique,
         fetchPrestas
     }
 }
