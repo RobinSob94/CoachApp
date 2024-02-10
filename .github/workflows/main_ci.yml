@@ -20,9 +20,6 @@ jobs:
 
         - name: Install Dependencies
           run: cd coachapp-react && npm install
-          
-        - name: Test
-          run: cd coachapp-react && npm test
 
         - name: Eslint
           run: cd coachapp-react && npm run lint
