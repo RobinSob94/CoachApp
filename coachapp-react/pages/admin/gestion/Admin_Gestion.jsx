@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Inter } from 'next/font/google';
 import NavbarContainer from "@/components/UIComponents/navbarContainer";
 import AdminNavbar from "@/components/UIComponents/adminNavbar";
-import React from "react";
 
 const inter = Inter({ subsets: ['latin'] })
 
