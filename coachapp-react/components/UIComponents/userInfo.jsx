@@ -1,8 +1,3 @@
-import styles from "@/styles/Home.module.css";
-import img from "@/public/img.png";
-import Image from "next/image";
-
-
 export default function UserInfo({...props}){
     return (
         <div>

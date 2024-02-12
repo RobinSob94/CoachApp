@@ -1,6 +1,6 @@
 import styles from '@/styles/Home.module.css'
 import useEquipierFormController from "@/controller/equipier/form/equipierFormController";
-import {log} from "next/dist/server/typescript/utils";
+import React from "react";
 
 export default function EquipierForm({admin = false}) {
     const {

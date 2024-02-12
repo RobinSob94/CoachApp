@@ -1,12 +1,13 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
-import Navbar from "@/components/UIComponents/navbar";
+import NavbarContainer from "@/components/UIComponents/navbarContainer";
 import { Inter } from 'next/font/google';
-
+import React from "react";
+import PrestaNavbar from "@/components/UIComponents/prestaNavbar";
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Prestataire({presta, prestataires}) {
+export default function Prestataire({presta, prestataires = null, isPresta = false}) {
     return (
         <>
             <Head>
@@ -16,12 +17,14 @@ export default function Prestataire({presta, prestataires}) {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <main className={`${styles.main} ${inter.className}`}>
-                <Navbar />
+                <NavbarContainer />
+                {isPresta && <PrestaNavbar />}
                 <div className={`${styles.center} ${styles.marginAuto}`}>
                 </div>
                 <div className={styles.prestaInfo}>
                     {presta && <div>Le nom {presta.nom} lien image {presta.img}</div>}
-                    <table>
+                    {prestataires &&
+                    <table className={styles.reservationTab}>
                         <thead>
                         <tr>
                             <td>Le nom </td>
@@ -32,6 +35,7 @@ export default function Prestataire({presta, prestataires}) {
                         {prestataires && prestataires.map(prestaUnique => <tr key={prestaUnique.id}><td>{prestaUnique.nom}</td><td>{prestaUnique.img}</td></tr>)}
                         </tbody>
                     </table>
+                    }
                 </div>
             </main>
         </>

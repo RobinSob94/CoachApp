@@ -1,4 +1,5 @@
-import useLoginModel from './loginModel'
+import useLoginModel from './loginModel';
+
 
 export default function useLoginViewModel () {
     const {
