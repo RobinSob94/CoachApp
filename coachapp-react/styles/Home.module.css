@@ -5,6 +5,22 @@
   min-height: 100vh;
 }
 
+.calendar {
+  margin: 20px;
+}
+
+.time-slots {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.time-slot {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
 .nav {
   display: flex;
   gap: 10px;

@@ -8,7 +8,7 @@ export default function ReservationContainer({id_etablissement= 0}) {
     const [service, setService] = useState("")
     const [dateHoraire, setDateHoraire] = useState(new Date())
     const [equipiers, setEquipiers] = useState(null)
-    console.log(id_hebergement);
+    console.log(id_etablissement);
     console.log(service,setService);
     console.log( dateHoraire, setDateHoraire)
     function equipiersCollection() {
