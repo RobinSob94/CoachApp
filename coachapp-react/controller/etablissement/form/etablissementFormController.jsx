@@ -1,5 +1,6 @@
 import {useState} from "react";
 
+
 export default function useEtablissementFormController() {
     const [nomEtablissement, setNomEtablissement] = useState('')
     const [adresse, setAdresse] = useState('')

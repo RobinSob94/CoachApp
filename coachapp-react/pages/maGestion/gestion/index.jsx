@@ -1,16 +1,16 @@
-import React from "react";
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import NavbarContainer from "@/components/UIComponents/navbarContainer";
 import AdminNavbar from "@/components/UIComponents/adminNavbar";
 import Link from "next/link";
-import PrestaForm from "@/form/prestataire/prestaForm";
-import {Inter} from "next/font/google";
-import PropTypes from "prop-types";
+import { Inter } from 'next/font/google';
+
 const inter = Inter({ subsets: ['latin'] })
 
-export default function GestionPrestataire({render, setRender}) {
+export default function GestionPrestataire() {
+
     return (
+    //     TODO: Ajouter le header et les navbar.
         <>
             <Head>
                 <title>Gestion des données</title>
@@ -23,21 +23,10 @@ export default function GestionPrestataire({render, setRender}) {
                 <AdminNavbar/>
                 <div className={`${styles.center} ${styles.marginAuto} ${styles.centerFixed}`}>
                 </div>
-                <h2>Prestataire</h2>
-
-                <div>
-                    <input className={styles.formButton} onClick={e => {e.preventDefault(); setRender("create")}} type={"button"} value={"Créer"}/>
-                    <input className={styles.formButton} onClick={e => {e.preventDefault(); setRender("search")}} type={"button"} value={"Chercher"}/>
-                    <Link href={"/admin/gestion"}>Retour</Link>
-                </div>
-                {render === "create" && <PrestaForm />}
-                {render === "search" && <h3>Search</h3>}
+                <Link className={styles.formButton} href={"/maGestion/gestion/equipiers"}>Equipiers</Link>
+                <Link className={styles.formButton} href={"/maGestion/gestion/etablissements"}>Etablissements</Link>
+                <Link className={styles.formButton} href={"/maGestion/gestion/services"}>Services</Link>
             </main>
         </>
     )
 }
-
-GestionPrestataire.propTypes = {
-    render: PropTypes.string.isRequired,
-    setRender: PropTypes.func.isRequired,
-};

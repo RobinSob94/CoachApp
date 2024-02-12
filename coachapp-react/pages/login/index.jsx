@@ -5,7 +5,7 @@ import styles from '@/styles/Home.module.css'
 import LoginForm from "@/form/login/loginForm";
 import FormContainer from "@/components/formComponents/formContainer";
 import LoginFormContainer from "@/form/login/loginContainer";
-
+import React from "react";
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Login() {

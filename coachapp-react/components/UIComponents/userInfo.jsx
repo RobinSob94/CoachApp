@@ -1,9 +1,6 @@
-import React from "react";
-//import styles from "@/styles/Home.module.css";
-//import img from "@/public/img.png";
-//import Image from "next/image";
-import PropTypes from "prop-types";
 
+import React from "react";
+import PropTypes from "prop-types";
 
 export default function UserInfo({...props}){
     return (

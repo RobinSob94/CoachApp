@@ -1,11 +1,10 @@
 import React from 'react';
-//import { Inter } from 'next/font/google';
 import Reservation from "@/pages/reservation/Reservation";
 import {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 
 
-export default function ReservationContainer({id_hebergement= 0}) {
+export default function ReservationContainer({id_etablissement= 0}) {
     const [service, setService] = useState("")
     const [dateHoraire, setDateHoraire] = useState(new Date())
     const [equipiers, setEquipiers] = useState(null)
@@ -36,6 +35,7 @@ export default function ReservationContainer({id_hebergement= 0}) {
             }
         ])
     }
+
 
 
     async function getEquipier(id_hebergement) {

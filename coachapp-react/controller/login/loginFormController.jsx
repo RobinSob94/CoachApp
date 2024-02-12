@@ -1,5 +1,4 @@
 import {useState} from "react";
-import useLoginViewModel from "@/models/login/loginViewModel";
 
 export default function useLoginController() {
     const [email, setEmail] = useState('')

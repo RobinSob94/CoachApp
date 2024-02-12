@@ -65,6 +65,11 @@
   height: fit-content;
 }
 
+.prestaListEtablissement {
+  display: grid;
+  grid-template: "a b c" auto
+}
+
 .loginFormContainer {
   display: flex;
   flex-direction: column;
@@ -75,6 +80,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin: 5% auto auto auto;
 }
 
 .prestataireFormContainer {
@@ -183,6 +189,12 @@
   border: 1px solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
   max-width: fit-content;
+}
+
+.cardRow {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
 .card span {
@@ -353,6 +365,21 @@
 .reservationTab td {
   border: 1px solid white;
   padding: 2px;
+}
+
+.errorContainer {
+  display: flex;
+  margin: 10% auto;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.errorContainer a {
+  width: auto;
+  font-size: 2em;
+  margin: auto;
+  margin-top: 20px
+
 }
 
 /* Tablet and Smaller Desktop */
