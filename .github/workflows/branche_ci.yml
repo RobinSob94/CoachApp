@@ -1,12 +1,12 @@
 name: React CI
 
 on:
-  pull_request:
-    branches:
-      - main
+  push:
+    branches-ignore:
+    - master 
 
 jobs:
-  test_for_merge:
+  ESlint_and_Test:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,6 +23,3 @@ jobs:
 
         - name: Eslint
           run: cd coachapp-react && npm run lint
-        
-        - name: Build
-          run: cd coachapp-react && npm run build
