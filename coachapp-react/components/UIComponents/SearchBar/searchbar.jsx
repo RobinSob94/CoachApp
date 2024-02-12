@@ -1,7 +1,4 @@
-import styles from '@/styles/Home.module.css';
-import Link from "next/link";
-
-
+import React from 'react';
 import styles from '@/styles/Home.module.css';
 
 export default function SearchBarComponent({...props}) {
