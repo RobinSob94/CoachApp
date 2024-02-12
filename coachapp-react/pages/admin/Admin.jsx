@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
-import { Inter } from 'next/fonts/google'; // Correct the import path
+import { Inter } from 'next/font/google';
 
 export default function Admin() {
     const inter = Inter({ subsets: ['latin'] }); // Create an instance of Inter font
