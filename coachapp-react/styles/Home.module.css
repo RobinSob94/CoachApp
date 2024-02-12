@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   min-height: 100vh;
 }
 
@@ -41,6 +40,36 @@
   background-color: rgb(180, 185, 188, 0.2);
 }
 
+.center.centerFixed {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+}
+
+.profilePicture {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.moncompte {
+  justify-content: normal;
+}
+
+.adminGestion {
+  justify-content: normal;
+}
+
+.moncompteUserInfo {
+  margin: 5% auto 5% 5%;
+  width: fit-content;
+  height: fit-content;
+}
+
+.prestaListEtablissement {
+  display: grid;
+  grid-template: "a b c" auto
+}
+
 .loginFormContainer {
   display: flex;
   flex-direction: column;
@@ -51,6 +80,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin: 5% auto auto auto;
 }
 
 .prestataireFormContainer {
@@ -76,6 +106,7 @@
   flex-direction: column;
   gap: 40px;
   margin: 0 auto;
+  z-index: 1;
 }
 
 .prestaForm {
@@ -99,6 +130,12 @@
   width: fit-content;
   padding: 5px;
   margin: 0 auto;
+}
+
+.resetPasswordButton {
+  width: fit-content;
+  padding: 5px;
+  margin: 5% auto auto 0;
 }
 
 .formTitle {
@@ -154,6 +191,12 @@
   max-width: fit-content;
 }
 
+.cardRow {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
 .card span {
   display: inline-block;
   transition: transform 200ms;
@@ -176,7 +219,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: absolute;
+  left: 50vw;
+  top: 50vw;
   padding: 4rem 0;
 }
 
@@ -305,6 +350,36 @@
     );
     z-index: 1;
   }
+}
+
+.prestaInfo {
+  margin: auto;
+}
+
+.reservationTab {
+  position: relative;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+.reservationTab td {
+  border: 1px solid white;
+  padding: 2px;
+}
+
+.errorContainer {
+  display: flex;
+  margin: 10% auto;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.errorContainer a {
+  width: auto;
+  font-size: 2em;
+  margin: auto;
+  margin-top: 20px
+
 }
 
 /* Tablet and Smaller Desktop */
