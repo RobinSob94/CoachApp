@@ -1,6 +1,8 @@
-import styles from "@/styles/Home.module.css";
-import img from "@/public/img.png";
-import Image from "next/image";
+import React from "react";
+//import styles from "@/styles/Home.module.css";
+//import img from "@/public/img.png";
+//import Image from "next/image";
+import PropTypes from "prop-types";
 
 
 export default function UserInfo({...props}){
@@ -33,3 +35,10 @@ export default function UserInfo({...props}){
         </div>
     )
 }
+
+UserInfo.propTypes = {
+    nom: PropTypes.string.isRequired,
+    prenom: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    pseudo: PropTypes.string.isRequired,
+};

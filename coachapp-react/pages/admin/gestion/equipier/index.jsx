@@ -1,3 +1,4 @@
+import React from "react";
 import useGestionRender from "@/controller/admin/gestion/useGestionRender";
 import GestionEquipier from "@/pages/admin/gestion/equipier/Equipier";
 
