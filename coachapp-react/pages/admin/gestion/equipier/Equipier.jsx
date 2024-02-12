@@ -10,7 +10,7 @@ import PrestaNavbar from "@/components/UIComponents/prestaNavbar";
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function GestionEquipier({render, setRender, retour = 'admin/gestion', isPresta = false, isAdmin = false}) {
+export default function GestionEquipier({render, setRender, retour = '/admin/gestion', isPresta = false, isAdmin = false}) {
 
     return (
         <>
@@ -22,7 +22,6 @@ export default function GestionEquipier({render, setRender, retour = 'admin/gest
             </Head>
             <main className={`${styles.main} ${inter.className} ${styles.adminGestion}`}>
                 <NavbarContainer/>
-                <AdminNavbar/>
                 {isAdmin && <AdminNavbar/>}
                 {isPresta && <PrestaNavbar/>}
                 <div className={`${styles.center} ${styles.marginAuto} ${styles.centerFixed}`}>
