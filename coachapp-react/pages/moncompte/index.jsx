@@ -1,3 +1,4 @@
+import React from "react";
 import MonCompte from "@/pages/moncompte/MonCompte";
 import {useEffect, useState} from "react";
 import useUserModel from "@/models/user/userModel";

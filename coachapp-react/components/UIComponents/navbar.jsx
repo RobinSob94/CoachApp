@@ -1,3 +1,5 @@
+import React from 'react';
+import styles from '@/styles/Home.module.css';
 import NavbarLink from "@/components/UIComponents/navbarLink";
 
 export default function Navbar({...props}) {

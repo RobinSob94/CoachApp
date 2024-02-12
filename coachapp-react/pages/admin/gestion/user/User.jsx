@@ -1,3 +1,4 @@
+import React from "react";
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import NavbarContainer from "@/components/UIComponents/navbarContainer";
@@ -5,7 +6,7 @@ import AdminNavbar from "@/components/UIComponents/adminNavbar";
 import Link from "next/link";
 import RegisterForm from "@/form/registration/registerForm";
 import { Inter } from 'next/font/google';
-import React from "react";
+import PropTypes from "prop-types";
 const inter = Inter({ subsets: ['latin'] })
 
 export default function GestionUser({render, setRender}) {
@@ -26,8 +27,8 @@ export default function GestionUser({render, setRender}) {
                 <h2>Utilisateur</h2>
 
                 <div>
-                    <input className={styles.formButton} onClick={e => setRender("create")} type={"button"} value={"Créer"}/>
-                    <input className={styles.formButton} onClick={e => setRender("search")} type={"button"} value={"Chercher"}/>
+                    <input className={styles.formButton} onClick={e => {e.preventDefault(); setRender("create")}} type={"button"} value={"Créer"}/>
+                    <input className={styles.formButton} onClick={e => {e.preventDefault(); setRender("search")}} type={"button"} value={"Chercher"}/>
                     <Link href={"/admin/gestion"}>Retour</Link>
                 </div>
 
@@ -39,3 +40,9 @@ export default function GestionUser({render, setRender}) {
         </>
     )
 }
+
+
+GestionUser.propTypes = {
+    render: PropTypes.string.isRequired,
+    setRender: PropTypes.func.isRequired,
+};

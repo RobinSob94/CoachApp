@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react'
+import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import RegisterForm from "@/form/registration/registerForm";
 import {useRouter} from "next/navigation";
