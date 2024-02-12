@@ -1,6 +1,6 @@
 import React from 'react';
 //import { Inter } from 'next/font/google';
-import Reservation from "@/pages/reservation/reservation";
+import Reservation from "@/pages/reservation/Reservation";
 import {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 
