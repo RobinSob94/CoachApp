@@ -31,11 +31,13 @@ export default function PrestaGestion() {
             return setIsPresta(data)
         }
         fetchIsPresta()
+        console.log('fetchIsPresta')
 
         if (isPresta === true) {
             const fetchPrestaUnique = async () => {
                 const data = await prestaUnique(id)
-                return setPrestataireUnique(data)
+                setPrestataireUnique(data)
+                return true
             }
 
             if (prestataireUnique !== {}) {
@@ -43,18 +45,19 @@ export default function PrestaGestion() {
                     const data = await getAllEtablissementFromOnePrestataire(id)
                     return setAllEtablissementFromOnePrestataire(data)
                 }
-            fetchAllEtablissement()
+                fetchAllEtablissement()
+                console.log('fetchAllEtablissement')
             }
             fetchPrestaUnique()
+            console.log('fetchPrestaUnique')
         }
-
     }, [isPresta])
 
     return (
         <>
             {isPresta ?
                 <div>
-                    <PrestaGestionContainter etablissements={allEtablissementFromOnePrestataire} prestataire={prestataireUnique}/>
+                    <PrestaGestionContainter etablissements={allEtablissementFromOnePrestataire} isPresta={isPresta} prestataire={prestataireUnique}/>
                 </div> : <> <Error403 /> </>}
         </>
     )

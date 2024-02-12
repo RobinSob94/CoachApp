@@ -1,3 +1,5 @@
+import {log} from "next/dist/server/typescript/utils";
+
 export default function useEtablissementModel() {
     const getAllEtablissementFromOnePrestataire = async (id) => {
         console.log(id)
@@ -97,9 +99,41 @@ export default function useEtablissementModel() {
         ]
     }
 
+    const getServicesFromOneEtablissement = async (id) => {
+        await console.log(id)
+        return [
+            {
+                id: 1,
+                libelle: 'Manger',
+            },
+            {
+                id: 2,
+                libelle: 'Training Session'
+            },
+            {
+                id: 3,
+                libelle: 'Boissons'
+            }
+        ]
+    }
+
+    const addServiceToEtablissement = async (id_S, id_E) => {
+        await console.log('Service Id '+id_S+'; Etablissement Id '+id_E)
+        return true
+    }
+
+    const deleteServiceFromEtablissement = async (id_S, id_E) => {
+        await console.log('Service Id '+id_S+'; Etablissement Id '+id_E)
+        return true
+    }
+
     return {
         getAllEtablissement,
         getOneEtablissementFromOnePrestataire,
-        getAllEtablissementFromOnePrestataire
+        getAllEtablissementFromOnePrestataire,
+        addServiceToEtablissement,
+        getServicesFromOneEtablissement,
+        deleteServiceFromEtablissement
+
     }
 }

@@ -3,16 +3,14 @@ import styles from "@/styles/Home.module.css";
 import NavbarContainer from "@/components/UIComponents/navbarContainer";
 import AdminNavbar from "@/components/UIComponents/adminNavbar";
 import Link from "next/link";
-import EquipierForm from "@/form/equipier/equiperForm";
-import {Inter} from "next/font/google";
-import React from "react";
-import PrestaNavbar from "@/components/UIComponents/prestaNavbar";
+import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function GestionEquipier({render, setRender, retour = 'admin/gestion', isPresta = false, isAdmin = false}) {
+export default function GestionPrestataire() {
 
     return (
+    //     TODO: Ajouter le header et les navbar.
         <>
             <Head>
                 <title>Gestion des données</title>
@@ -23,19 +21,11 @@ export default function GestionEquipier({render, setRender, retour = 'admin/gest
             <main className={`${styles.main} ${inter.className} ${styles.adminGestion}`}>
                 <NavbarContainer/>
                 <AdminNavbar/>
-                {isAdmin && <AdminNavbar/>}
-                {isPresta && <PrestaNavbar/>}
                 <div className={`${styles.center} ${styles.marginAuto} ${styles.centerFixed}`}>
                 </div>
-                <h2>Equipier</h2>
-
-                <div>
-                    <input className={styles.formButton} onClick={e => setRender("create")} type={"button"} value={"Créer"}/>
-                    <input className={styles.formButton} onClick={e => setRender("search")} type={"button"} value={"Chercher"}/>
-                    <Link href={retour}>Retour</Link>
-                </div>
-                {render === "create" && <EquipierForm admin={true} />}
-                {render === "search" && <h3>Search</h3>}
+                <Link className={styles.formButton} href={"/maGestion/gestion/equipiers"}>Equipiers</Link>
+                <Link className={styles.formButton} href={"/maGestion/gestion/etablissements"}>Etablissements</Link>
+                <Link className={styles.formButton} href={"/maGestion/gestion/services"}>Services</Link>
             </main>
         </>
     )

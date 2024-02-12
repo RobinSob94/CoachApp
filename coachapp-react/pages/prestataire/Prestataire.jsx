@@ -3,10 +3,11 @@ import styles from "@/styles/Home.module.css";
 import NavbarContainer from "@/components/UIComponents/navbarContainer";
 import { Inter } from 'next/font/google';
 import React from "react";
+import PrestaNavbar from "@/components/UIComponents/prestaNavbar";
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Prestataire({presta, prestataires = null}) {
+export default function Prestataire({presta, prestataires = null, isPresta = false}) {
     return (
         <>
             <Head>
@@ -17,6 +18,7 @@ export default function Prestataire({presta, prestataires = null}) {
             </Head>
             <main className={`${styles.main} ${inter.className}`}>
                 <NavbarContainer />
+                {isPresta && <PrestaNavbar />}
                 <div className={`${styles.center} ${styles.marginAuto}`}>
                 </div>
                 <div className={styles.prestaInfo}>

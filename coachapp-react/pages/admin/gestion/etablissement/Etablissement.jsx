@@ -6,9 +6,10 @@ import Link from "next/link";
 import EtablissementForm from "@/form/etablissement/etablissementForm";
 import {Inter} from "next/font/google";
 import React from "react";
+import PrestaNavbar from "@/components/UIComponents/prestaNavbar";
 const inter = Inter({ subsets: ['latin'] })
 
-export default function GestionEtablissement({render, setRender}) {
+export default function GestionEtablissement({render, setRender, retour = 'admin/gestion', isAdmin = false, isPresta = false}) {
     return (
         <>
             <Head>
@@ -19,7 +20,8 @@ export default function GestionEtablissement({render, setRender}) {
             </Head>
             <main className={`${styles.main} ${inter.className} ${styles.adminGestion}`}>
                 <NavbarContainer/>
-                <AdminNavbar/>
+                {isAdmin && <AdminNavbar />}
+                {isPresta && <PrestaNavbar />}
                 <div className={`${styles.center} ${styles.marginAuto} ${styles.centerFixed}`}>
                 </div>
                 <h2>Etablissement</h2>
@@ -27,7 +29,7 @@ export default function GestionEtablissement({render, setRender}) {
                 <div>
                     <input className={styles.formButton} onClick={e => setRender("create")} type={"button"} value={"Créer"}/>
                     <input className={styles.formButton} onClick={e => setRender("search")} type={"button"} value={"Chercher"}/>
-                    <Link href={"/admin/gestion"}>Retour</Link>
+                    <Link href={retour}>Retour</Link>
                 </div>
                 {render === "create" && <EtablissementForm />}
                 {render === "search" && <h3>Search</h3>}

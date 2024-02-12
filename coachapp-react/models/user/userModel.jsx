@@ -12,7 +12,7 @@ export default function useUserModel() {
     }
 
     function isAdmin() {
-        return false
+        return true
     }
 
     function isPrestataire(id) {

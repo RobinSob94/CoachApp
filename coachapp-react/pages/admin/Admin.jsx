@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import AdminNavbar from "@/components/UIComponents/adminNavbar";
 
 import React from "react";
+import NavbarContainer from "@/components/UIComponents/navbarContainer";
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Admin() {

@@ -4,10 +4,12 @@ import Navbar from "@/components/UIComponents/navbar";
 import useUserModel from "@/models/user/userModel";
 export default function NavbarContainer() {
     const {
-        isPrestataire
+        isPrestataire,
+        isAdmin
     } = useUserModel()
 
     const [isPresta, setIsPresta] = useState(false)
+    const [isAdministrateur, setIsAdministrateur] = useState(false)
 
     const id = 18;
 
@@ -17,12 +19,19 @@ export default function NavbarContainer() {
             return setIsPresta(data)
         }
 
+        const fetchIsAdmin = async () => {
+            const data = await isAdmin(id)
+            return setIsAdministrateur(data)
+        }
+
+
         fetchIsPresta()
+        fetchIsAdmin()
     }, [])
     return (
         <>
                 <nav className={styles.nav}>
-                    <Navbar isPresta={isPresta}/>
+                    <Navbar isPresta={isPresta} isAdmin={isAdministrateur}/>
                 </nav>
         </>
 

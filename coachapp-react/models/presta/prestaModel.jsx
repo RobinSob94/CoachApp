@@ -9,7 +9,6 @@ export default function usePrestaModel() {
         }
 
         function prestaUnique(id){
-            console.log('Un id: '+id)
         return {
             id: id,
             nom:"totototot",

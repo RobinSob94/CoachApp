@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function PrestaGestionContainter({...props}) {
     return(
         <>
-                {props.prestataire !== {} ? <Prestataire presta={props.prestataire} /> : <div> Ce prestataire n'existe pas</div>}
+                {props.prestataire !== {} ? <Prestataire presta={props.prestataire} isPresta={props.isPresta}/> : <div> Ce prestataire n'existe pas</div>}
                 {props.prestataire !== {} && props.etablissements !== [{}] ?
                     <div>
                         <PrestaListEtablissement etablissements={props.etablissements} prestataire={props.prestataire}/>
