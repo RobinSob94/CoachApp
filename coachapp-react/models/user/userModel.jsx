@@ -1,4 +1,29 @@
 export default function useUserModel() {
+
+    const newUser = async (data = {}) => {
+        const response = await fetch(`http://localhost:8888/api/users`, {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+        return response.json()
+    }
+
+    const authentication = async (data = {}) => {
+        const response = await fetch('http://localhost:8888/api/token', {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+        return response.json()
+    }
+
     function fetchCurrentUser() {
         return {
             id: 1,
@@ -11,11 +36,13 @@ export default function useUserModel() {
         }
     }
 
-    function isAdmin() {
+    function isAdmin(id) {
+        console.log(id)
         return true
     }
 
     function isPrestataire(id) {
+        console.log(id)
         return true
     }
 
@@ -61,6 +88,8 @@ export default function useUserModel() {
         isPrestataire,
         setNewUser,
         setNewPassword,
-        getReservations
+        getReservations,
+        newUser,
+        authentication
     }
 }
