@@ -6,7 +6,8 @@ import { Inter } from 'next/font/google';
 import PropTypes from "prop-types";
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Reservation({equipiers}) {
+export default function Reservation({equipier, action}) {
+    
     return (
         <>
             <Head>
@@ -20,32 +21,92 @@ export default function Reservation({equipiers}) {
                 <div className={`${styles.center} ${styles.marginAuto}`}>
                 </div>
                 <table className={styles.reservationTab}>
+                    <caption>Planning de la semaine de : {equipier.nom}</caption>
                     <thead>
                     <tr>
-                        <td>
-                            Id
-                        </td>
-                        <td>
-                            Nom
-                        </td>
-                        <td>
-                            Jours travail
-                        </td>
+                        <th></th>
+                        <th>
+                            Lundi
+                        </th>
+                        <th>
+                            Mardi
+                        </th>
+                        <th>
+                            Marcredi
+                        </th>
+                        <th>
+                            Jeudi
+                        </th>
+                        <th>
+                            Vendredi
+                        </th>
+                        <th>
+                            Samedi
+                        </th>
+                        <th>
+                            Dimanche
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
-                    {equipiers !== null ?
-                        equipiers.map(equipier =>
-                            <tr key={equipier.id}>
-                                <td>{equipier.id}</td>
-                                <td>{equipier.nom}</td>
-                                <td>{equipier.jour_travail.map(jours => <p key={jours}>{jours}</p>)}</td></tr>)
-                        :
                         <tr>
-                            <td>Waiting...</td>
-                            <td>Waiting...</td>
-                            <td>Waiting...</td>
-                        </tr>}
+                            <th>9h / 10</th>
+                            {equipier.jour_travail?.map((jour, index) => 
+                             jour === null ? <td key={index}>Non disponible</td> : <td key={index} onClick={() => action(equipier.nom,9,jour)}>Dispo</td>
+                            )}
+                        </tr>
+                        <tr>
+                            <th>10h / 11h</th>
+                            {equipier.jour_travail?.map((jour, index) => 
+                             jour === null ? <td key={index}>Non disponible</td> : <td key={index} onClick={() => action(equipier.nom,10,jour)}>Dispo</td>
+                            )}
+                        </tr>
+                        <tr>
+                            <th>11h / 12h</th>
+                            {equipier.jour_travail?.map((jour, index) => 
+                             jour === null ? <td key={index}>Non disponible</td> : <td key={index} onClick={() => action(equipier.nom,11,jour)}>Dispo</td>
+                            )}
+                        </tr>
+                        <tr>
+                            <th>12h / 13h</th>
+                            {equipier.jour_travail?.map((jour, index) => 
+                             jour === null ? <td key={index}>Non disponible</td> : <td key={index} onClick={() => action(equipier.nom,12,jour)}>Dispo</td>
+                            )}
+                        </tr>
+                        <tr>
+                            <th>13h / 14h</th>
+                            <td>Pause dejeuner</td>
+                            <td>Pause dejeuner</td>
+                            <td>Pause dejeuner</td>
+                            <td>Pause dejeuner</td>
+                            <td>Pause dejeuner</td>
+                            <td>Pause dejeuner</td>
+                            <td>Pause dejeuner</td>
+                        </tr>
+                        <tr>
+                            <th>14h / 15h</th>
+                            {equipier.jour_travail?.map((jour, index) => 
+                             jour === null ? <td key={index}>Non disponible</td> : <td key={index} onClick={() => action(equipier.nom,14,jour)}>Dispo</td>
+                            )}
+                        </tr>
+                        <tr>
+                            <th>15h / 16h</th>
+                            {equipier.jour_travail?.map((jour, index) => 
+                             jour === null ? <td key={index}>Non disponible</td> : <td key={index} onClick={() => action(equipier.nom,15,jour)}>Dispo</td>
+                            )}
+                        </tr>
+                        <tr>
+                            <th>16h / 17h</th>
+                            {equipier.jour_travail?.map((jour, index) => 
+                             jour === null ? <td key={index}>Non disponible</td> : <td key={index} onClick={() => action(equipier.nom,16,jour)}>Dispo</td>
+                            )}
+                        </tr>
+                        <tr>
+                            <th>17h / 18h</th>
+                            {equipier.jour_travail?.map((jour, index) => 
+                             jour === null ? <td key={index}>Non disponible</td> : <td key={index} onClick={() => action(equipier.nom,17,jour)}>Dispo</td>
+                            )}
+                        </tr>
                     </tbody>
                 </table>
             </main>
@@ -54,5 +115,5 @@ export default function Reservation({equipiers}) {
 }
 
 Reservation.propTypes = {
-    equipiers: PropTypes.array.isRequired
+    equipier: PropTypes.object.isRequired,
 };
