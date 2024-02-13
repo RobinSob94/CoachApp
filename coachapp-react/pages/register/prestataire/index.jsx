@@ -16,6 +16,7 @@ export default function PrestataireForm() {
     const [logo, setLogo] = useState({})
     const [kbis, setKbis] = useState({})
     const [errors, setErrors] = useState({})
+    const [stateFormError, setStateFormError] = useState('')
 
     const router = useRouter()
 
@@ -37,7 +38,7 @@ export default function PrestataireForm() {
             let lastAtPos = email.lastIndexOf('@');
             let lastDotPos = email.lastIndexOf('.');
 
-            if (!(lastAtPos < lastDotPos && lastAtPos > 0 && email.indexOf('@@') == -1 && lastDotPos > 2 && (email.length - lastDotPos) > 2)) {
+            if (!(lastAtPos < lastDotPos && lastAtPos > 0 && email.indexOf('@@') === -1 && lastDotPos > 2 && (email.length - lastDotPos) > 2)) {
                 formIsValid = false;
                 formErrors["email"] = "Email is not valid";
             }
@@ -89,26 +90,27 @@ export default function PrestataireForm() {
     const onSubmit = function handleSubmit(e) {
         e.preventDefault()
         if(handleValidation()){
-            console.log(nomEntreprise + ' ' + addPostale + ' ' + telephone + ' ' + email)
-            alert('Form submitted')
+            console.log(nomEntreprise + ' ' + adresse + ' ' + telephone + ' ' + email)
+            return router.push('/')
         }else{
-            console.log(nomEntreprise + ' ' + addPostale + ' ' + telephone + ' ' + email)
-            alert('Form hase errors')
+            console.log(nomEntreprise + ' ' + adresse + ' ' + telephone + ' ' + email)
+            setStateFormError('Le formulaire contient des erreurs')
         }
     }
     return (
         <>
             <PrestaForm
                 setEmail={setEmail}
-            setTelephone={setTelephone}
-            setNomEntreprise={setNomEntreprise}
-            setAdresse={setAdresse}
-            setVille={setVille}
-            setCodePostal={setCodePostal}
-            setKbis={setKbis}
-            setLogo={setLogo}
-            errors={errors}
-            onSubmit={onSubmit}
+                setTelephone={setTelephone}
+                setNomEntreprise={setNomEntreprise}
+                setAdresse={setAdresse}
+                setVille={setVille}
+                setCodePostal={setCodePostal}
+                stateFormError={stateFormError}
+                setKbis={setKbis}
+                setLogo={setLogo}
+                errors={errors}
+                onSubmit={onSubmit}
             />
         </>
     )

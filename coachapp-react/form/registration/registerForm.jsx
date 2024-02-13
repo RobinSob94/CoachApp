@@ -1,12 +1,15 @@
 import styles from '@/styles/Home.module.css'
 import React from "react";
+import PropTypes from "prop-types";
+import Link from "next/link";
 
 export default function RegisterForm({...props}) {
     return (
             <div className={styles.registrationFormContainer}>
                 <div className={styles.formTitle}>Inscription</div>
-                <div>
-                    <form onSubmit={e => props.onSubmit(e)} className={`${styles.card} ${styles.form}`}>
+                <div className={styles.card}>
+                    <form onSubmit={e => props.onSubmit(e)} className={`${styles.form}`}>
+                       <span>{props.stateFormError}</span>
                         <div className={styles.formComponent}>
                             <label htmlFor={"nom"}>Nom</label>
                             <input className={styles.formInput} onChange={e => props.setNom(e.target.value)} id={"nom"}
@@ -46,7 +49,20 @@ export default function RegisterForm({...props}) {
                         </div>
                         <input className={styles.formButton} type="submit" value="Connexion"/>
                     </form>
+                    <Link href={"/login"}>Se connecter</Link>
                 </div>
             </div>
     )
 }
+
+RegisterForm.propTypes = {
+    setEmail: PropTypes.func.isRequired,
+    setNom: PropTypes.func.isRequired,
+    setPrenom: PropTypes.func.isRequired,
+    setPassword: PropTypes.func.isRequired,
+    setPseudo: PropTypes.func.isRequired,
+    setRole: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    errors: PropTypes.array.isRequired,
+    stateFormError: PropTypes.string.isRequired
+};

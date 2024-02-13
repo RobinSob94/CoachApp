@@ -2,6 +2,7 @@ import styles from '@/styles/Home.module.css'
 import React from "react";
 import Head from "next/head";
 import {Inter} from "next/font/google";
+import PropTypes from "prop-types";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,12 +20,13 @@ export default function PrestaForm({...props}) {
 
                 <div className={styles.prestaContainer}>
                     <div className={styles.formTitle}>Vous êtes prestataire</div>
-                    <div>
-                        <form className={`${styles.card} ${styles.form}`} onSubmit={e => props.onSubmit(e)}>
+                    <div className={styles.card}>
+                        <span>{props.stateFormError}</span>
+                        <form className={`${styles.form}`} onSubmit={e => props.onSubmit(e)}>
                             <div className={styles.formComponent}>
                                 <label htmlFor={'nomEntreprise'}>Nom de l'entreprise</label>
                                 <input type={'text'} className={styles.formInput}
-                                       onChange={e => setNomEntreprise(e.target.value)}
+                                       onChange={e => props.setNomEntreprise(e.target.value)}
                                        id={'nomEntreprise'}/>
                                 <span className={styles.error}>{props.errors["nomEntreprise"]}</span>
                             </div>
@@ -89,3 +91,17 @@ export default function PrestaForm({...props}) {
         </>
     )
 }
+
+PrestaForm.propTypes = {
+    setEmail: PropTypes.func.isRequired,
+    setNomEntreprise: PropTypes.func.isRequired,
+    setAdresse: PropTypes.func.isRequired,
+    setVille: PropTypes.func.isRequired,
+    setCodePostal: PropTypes.func.isRequired,
+    setTelephone: PropTypes.func.isRequired,
+    setLogo: PropTypes.func.isRequired,
+    setKbis: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired,
+    stateFormError: PropTypes.string
+};

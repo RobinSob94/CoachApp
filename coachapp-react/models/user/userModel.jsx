@@ -13,16 +13,17 @@ export default function useUserModel() {
     }
 
     const authentication = async (data = {}) => {
-        const response = await fetch('http://localhost:8888/api/token', {
-            method: "POST",
-            mode: "cors",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        })
-        return response.json()
+            const response = await fetch('http://localhost:8888/api/token', {
+                method: "POST",
+                mode: "cors",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+        return  response.json()
     }
+
 
     const getUserRole = async (data = {}) => {
         const response = await fetch('http://localhost:8888/api/users/role', {

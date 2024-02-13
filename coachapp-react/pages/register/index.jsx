@@ -3,7 +3,7 @@ import RegisterForm from "@/form/registration/registerForm";
 import {useRouter} from "next/navigation";
 import {useState} from "react";
 import useUserModel from "@/models/user/userModel";
-import bcrypt from 'bcryptjs'
+import md5 from 'md5'
 import Cookies from "js-cookie";
 
 
@@ -15,13 +15,13 @@ export default function Register() {
     const [pseudo, setPseudo] = useState('')
     const [role, setRole] = useState('')
     const [errors, setErrors] = useState({})
+    const [stateFormError, setStateFormError] = useState('')
 
     const router = useRouter()
 
     const {
         authentication,
         newUser,
-        getUserRoles
     } = useUserModel()
 
     function handleValidation () {
@@ -75,7 +75,7 @@ export default function Register() {
 
     const onSubmit = function handleSubmit(e){
         e.preventDefault();
-        const encryptedPassword = bcrypt.hashSync(password)
+        const encryptedPassword = md5(password)
         if(handleValidation()){
             console.log(nom + ' ' + prenom + ' ' + pseudo + ' ' + email + ' ' + password + ' ' + role)
             if (role === 'PRESTATAIRE') {
@@ -84,7 +84,7 @@ export default function Register() {
                     "prenom": prenom,
                     "email": email,
                     "updatedAt": new Date(),
-                    "createdAt": new Date(),
+                    "createAt": new Date(),
                     "pseudo": pseudo,
                     "roles": ['ROLE_PRESTATAIRE'],
                     "password": encryptedPassword
@@ -96,8 +96,7 @@ export default function Register() {
                         try {
                             const token = response.token;
                             Cookies.remove('token')
-                            Cookies.set('token', token, { expires: 1, secure: true });
-                            console.log(Cookies.get())
+                            Cookies.set('token', token, { expires: 1, secure: true, SameSite: 'None' });
                         } catch (error) {
                             console.log('Failed to set Cookie for token')
                         }
@@ -124,8 +123,7 @@ export default function Register() {
                             try {
                                 const token = response.token;
                                 Cookies.remove('token')
-                                Cookies.get('token')
-                                Cookies.set('token', token, { expires: 1, secure: true, sameSite: 'None' });
+                                Cookies.set('token', token, { expires: 1, secure: true, SameSite: 'None' });
                             } catch (error) {
                                 console.log('Failed to set Cookie for token')
                             }
@@ -133,10 +131,9 @@ export default function Register() {
 
                 })
             }
-            alert("Form submitted");
         }else{
             console.log(nom + ' ' + prenom + ' ' + pseudo + ' ' + email + ' ' + password + ' ' + role)
-            alert("Form has errors.")
+            setStateFormError('Le formulaire contient des erreurs')
         }
     }
 
@@ -151,6 +148,7 @@ export default function Register() {
             setRole={setRole}
             errors={errors}
             onSubmit={onSubmit}
+            stateFormError={stateFormError}
             />
         </>
     )
