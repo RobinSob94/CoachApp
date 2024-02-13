@@ -2,6 +2,7 @@ import React from 'react';
 import Reservation from "@/pages/reservation/Reservation";
 import useequipierModel from '@/models/equipier/equipierModel'
 import {useEffect, useState} from "react";
+import useReservationController from "@/controller/reservation/reservationController";
 import PropTypes from "prop-types";
 
 
@@ -11,6 +12,10 @@ export default function ReservationContainer({id_etablissement= 0}) {
         fetchEquipierUnique,
         fetchEquipier
     } = useequipierModel()
+
+    const {
+        displayInfo
+    } = useReservationController()
 
     const [service, setService] = useState("")
     const [dateHoraire, setDateHoraire] = useState(new Date())
@@ -27,23 +32,9 @@ export default function ReservationContainer({id_etablissement= 0}) {
             fetchP()
         },[]);
 
-
-    // async function getEquipier(id_hebergement) {
-    //     console.log(id_hebergement)
-    //     await equipiersCollection()
-    // }
-
-    
-    // getEquipier.propTypes = {
-    //     id_hebergement: PropTypes.string.isRequired,
-    // };
-    // useEffect(() => {
-    //     getEquipier(1)
-    // }, []);
-
     return (
         <>
-            <Reservation equipier={equipierUnique}/>
+            <Reservation equipier={equipierUnique} action={displayInfo}/>
         </>
     )
 }
