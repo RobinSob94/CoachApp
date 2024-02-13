@@ -24,6 +24,18 @@ export default function useUserModel() {
         return response.json()
     }
 
+    const getUserRole = async (data = {}) => {
+        const response = await fetch('http://localhost:8888/api/users/role', {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data)
+        })
+        return response.json()
+    }
+
     function fetchCurrentUser() {
         return {
             id: 1,
@@ -90,6 +102,7 @@ export default function useUserModel() {
         setNewPassword,
         getReservations,
         newUser,
-        authentication
+        authentication,
+        getUserRole
     }
 }

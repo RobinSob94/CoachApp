@@ -20,7 +20,8 @@ export default function Register() {
 
     const {
         authentication,
-        newUser
+        newUser,
+        getUserRoles
     } = useUserModel()
 
     function handleValidation () {
@@ -123,11 +124,13 @@ export default function Register() {
                             try {
                                 const token = response.token;
                                 Cookies.remove('token')
+                                Cookies.get('token')
                                 Cookies.set('token', token, { expires: 1, secure: true, sameSite: 'None' });
                             } catch (error) {
                                 console.log('Failed to set Cookie for token')
                             }
                     })
+
                 })
             }
             alert("Form submitted");
