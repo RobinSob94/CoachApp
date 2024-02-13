@@ -2,8 +2,6 @@ import React from "react";
 import {useEffect, useState} from "react";
 import useprestaModel from "@/models/presta/prestaModel";
 import Prestataire from "@/pages/prestataire/Prestataire";
-import useUserModel from "@/models/user/userModel";
-import Error403 from "@/pages/errors/403";
 export default function Presta() {
 
     const {
@@ -24,8 +22,7 @@ export default function Presta() {
         return setPrestataires(data)
     }
         fetchP()
-    });
-
+    }, []);
     return (
         <>
             {display && <Prestataire

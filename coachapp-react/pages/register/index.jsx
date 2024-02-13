@@ -1,11 +1,11 @@
 import React from 'react'
-import Head from 'next/head'
-import { Inter } from 'next/font/google'
 import RegisterForm from "@/form/registration/registerForm";
 import {useRouter} from "next/navigation";
 import {useState} from "react";
+import useUserModel from "@/models/user/userModel";
+import bcrypt from 'bcryptjs'
+import Cookies from "js-cookie";
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Register() {
     const [nom, setNom] = useState('')
@@ -18,9 +18,10 @@ export default function Register() {
 
     const router = useRouter()
 
-    /* const {
-        TODO: Insert code from useRegisterViewModel
-    }*/
+    const {
+        authentication,
+        newUser
+    } = useUserModel()
 
     function handleValidation () {
         const formErrors = {};
@@ -73,12 +74,62 @@ export default function Register() {
 
     const onSubmit = function handleSubmit(e){
         e.preventDefault();
+        const encryptedPassword = bcrypt.hashSync(password)
         if(handleValidation()){
             console.log(nom + ' ' + prenom + ' ' + pseudo + ' ' + email + ' ' + password + ' ' + role)
-            if (role === 'PRESTATAIRE')
-                // TODO: Need to have the JWT token at this point to continue registering prestataire while connected
-                router.push('/register/prestataire')
-            //     TODO: Need connexion to api and force redirect to mainPage along with saving JWT token.
+            if (role === 'PRESTATAIRE') {
+                newUser({
+                    "nom": nom,
+                    "prenom": prenom,
+                    "email": email,
+                    "updatedAt": new Date(),
+                    "createdAt": new Date(),
+                    "pseudo": pseudo,
+                    "roles": ['ROLE_PRESTATAIRE'],
+                    "password": encryptedPassword
+                }).then((data) => {
+                    authentication({
+                        "email": data.email,
+                        "password": encryptedPassword
+                    }).then((response) => {
+                        try {
+                            const token = response.token;
+                            Cookies.remove('token')
+                            Cookies.set('token', token, { expires: 1, secure: true });
+                            console.log(Cookies.get())
+                        } catch (error) {
+                            console.log('Failed to set Cookie for token')
+                        }
+                    })
+                    router.push('/register/prestataire')
+                })
+
+            }
+            if (role === 'USER') {
+                newUser({
+                    "nom": nom,
+                    "prenom": prenom,
+                    "email": email,
+                    "updatedAt": new Date(),
+                    "createAt": new Date(),
+                    "pseudo": pseudo,
+                    "roles": ['ROLE_USER'],
+                    "password": encryptedPassword
+                }).then((data) => {
+                    authentication({
+                        "email": data.email,
+                        "password": encryptedPassword
+                    }).then((response) => {
+                            try {
+                                const token = response.token;
+                                Cookies.remove('token')
+                                Cookies.set('token', token, { expires: 1, secure: true, sameSite: 'None' });
+                            } catch (error) {
+                                console.log('Failed to set Cookie for token')
+                            }
+                    })
+                })
+            }
             alert("Form submitted");
         }else{
             console.log(nom + ' ' + prenom + ' ' + pseudo + ' ' + email + ' ' + password + ' ' + role)
@@ -101,3 +152,4 @@ export default function Register() {
         </>
     )
 }
+
