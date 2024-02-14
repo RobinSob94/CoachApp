@@ -1,4 +1,4 @@
-import Admin from "@/pages/admin/admin";
+import Admin from "@/pages/admin/Admin";
 import React, {useEffect, useState} from "react";
 import useUserModel from "@/models/user/userModel";
 import Error403 from "@/pages/errors/403";
