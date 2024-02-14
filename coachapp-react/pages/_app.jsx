@@ -8,5 +8,5 @@ export default function App({ Component, pageProps }) {
 
 App.propTypes = {
   Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.elementType.isRequired,
+  pageProps: PropTypes.object.isRequired,
 };

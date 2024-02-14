@@ -18,6 +18,6 @@ export default function Navbar({...props}) {
 }
 
 Navbar.propTypes = {
-    isAdmin: PropTypes.array.isRequired,
-    isPresta: PropTypes.array.isRequired,
+    isAdmin: PropTypes.bool.isRequired,
+    isPresta: PropTypes.bool.isRequired,
 };
