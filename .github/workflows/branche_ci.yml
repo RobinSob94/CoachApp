@@ -19,7 +19,7 @@ jobs:
             node-version: 18.17.1
 
         - name: Install Dependencies
-          run: cd coachapp-react && npm install
+          run: cd coachapp-react && npm install --legacy-peer-deps
 
         - name: Eslint
           run: cd coachapp-react && npm run lint
