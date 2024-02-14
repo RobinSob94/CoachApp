@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import PrestaNavbar from "@/components/UIComponents/prestaNavbar";
 const inter = Inter({ subsets: ['latin'] })
 
-export default function GestionEtablissement({render, setRender, retour = 'admin/gestion', isAdmin = false, isPresta = false}) {
+export default function GestionEtablissement({render, setRender, isAdmin = false, isPresta = false}) {
     return (
         <>
             <Head>
@@ -42,4 +42,6 @@ export default function GestionEtablissement({render, setRender, retour = 'admin
 GestionEtablissement.propTypes = {
     render: PropTypes.string.isRequired,
     setRender: PropTypes.func.isRequired,
+    isAdmin: PropTypes.bool,
+    isPresta: PropTypes.bool,
 };

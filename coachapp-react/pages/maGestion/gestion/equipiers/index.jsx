@@ -1,3 +1,4 @@
+import React from "react";
 import useUserModel from "@/models/user/userModel";
 import {useState} from "react";
 import GestionEquipier from "@/pages/admin/gestion/equipier/Equipier";

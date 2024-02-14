@@ -1,7 +1,8 @@
-import styles from '@/styles/Home.module.css';
+import React from 'react';
 import Link from "next/link";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from "prop-types";
 
 export default function Icone({...props}) {
     return (
@@ -13,4 +14,9 @@ export default function Icone({...props}) {
         </Link>
     )
 }
+
+
+Icone.propTypes = {
+    nom: PropTypes.array.isRequired,
+};
 

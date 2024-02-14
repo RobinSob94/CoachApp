@@ -12,7 +12,7 @@ import PrestaNavbar from "@/components/UIComponents/prestaNavbar";
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function GestionEquipier({render, setRender, retour = '/admin/gestion', isPresta = false, isAdmin = false}) {
+export default function GestionEquipier({render, setRender, isPresta = false, isAdmin = false}) {
 
     return (
         <>
@@ -46,4 +46,6 @@ export default function GestionEquipier({render, setRender, retour = '/admin/ges
 GestionEquipier.propTypes = {
     render: PropTypes.string.isRequired,
     setRender: PropTypes.func.isRequired,
+    isAdmin: PropTypes.bool,
+    isPresta: PropTypes.bool,
 };

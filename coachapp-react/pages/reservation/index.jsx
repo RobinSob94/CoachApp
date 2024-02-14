@@ -7,25 +7,20 @@ import PropTypes from "prop-types";
 
 
 export default function ReservationContainer({id_etablissement= 0}) {
-
+    console.log(id_etablissement)
     const {
         fetchEquipierUnique,
-        fetchEquipier
     } = useequipierModel()
 
     const {
         displayInfo
     } = useReservationController()
 
-    const [service, setService] = useState("")
-    const [dateHoraire, setDateHoraire] = useState(new Date())
-    const [equipiers, setEquipiers] = useState([])
     const [equipierUnique, setEquipierUnique] = useState({})
 
     useEffect(() => {
         const fetchP = async () => {
             const dataUnique = await fetchEquipierUnique()
-            const data = await fetchEquipier()
             setEquipierUnique(dataUnique)
             return setEquipierUnique(dataUnique);
         }
@@ -38,3 +33,7 @@ export default function ReservationContainer({id_etablissement= 0}) {
         </>
     )
 }
+
+ReservationContainer.propTypes = {
+    id_etablissement: PropTypes.number.isRequired,
+};

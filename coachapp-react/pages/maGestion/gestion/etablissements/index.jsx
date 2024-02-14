@@ -1,3 +1,4 @@
+import React from "react";
 import useUserModel from "@/models/user/userModel";
 import Error403 from "@/pages/errors/403";
 import GestionEtablissement from "@/pages/admin/gestion/etablissement/Etablissement";

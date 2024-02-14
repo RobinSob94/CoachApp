@@ -1,3 +1,4 @@
+import React from "react";
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import NavbarContainer from "@/components/UIComponents/navbarContainer";
@@ -27,8 +28,8 @@ export default function GestionService(render, setRender, retour = '/maGestion/g
                 <h2>Etablissement</h2>
 
                 <div>
-                    <input className={styles.formButton} onClick={e => setRender("create")} type={"button"} value={"Créer"}/>
-                    <input className={styles.formButton} onClick={e => setRender("search")} type={"button"} value={"Chercher"}/>
+                    <input className={styles.formButton} onClick={e =>{e.preventDefault(); setRender("create")}} type={"button"} value={"Créer"}/>
+                    <input className={styles.formButton} onClick={e =>{e.preventDefault(); setRender("search")}} type={"button"} value={"Chercher"}/>
                     <Link href={retour}>Retour</Link>
                 </div>
                 {render === "create" && <ServiceForm />}
