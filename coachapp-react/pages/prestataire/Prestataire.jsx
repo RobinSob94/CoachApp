@@ -47,4 +47,5 @@ export default function Prestataire({presta, prestataires = null, isPresta = fal
 Prestataire.propTypes = {
     presta: PropTypes.object.isRequired,
     prestataires: PropTypes.object.isRequired,
+    isPresta: PropTypes.bool.isRequired,
   };

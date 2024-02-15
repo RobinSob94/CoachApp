@@ -1,6 +1,4 @@
 import React from 'react'
-import Head from 'next/head'
-import {Cookie, Inter} from 'next/font/google'
 import {useState} from "react";
 import PrestaForm from "@/form/prestataire/prestaForm";
 import {useRouter} from "next/navigation";
@@ -96,7 +94,6 @@ export default function PrestataireForm() {
     const onSubmit = function handleSubmit(e) {
         e.preventDefault()
         if(handleValidation()){
-            console.log(kbis)
             newPresta({
                 mail: email,
                 telephone: telephone,

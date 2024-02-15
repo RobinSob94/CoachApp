@@ -1,6 +1,7 @@
+import React from "react";
 import useUserModel from "@/models/user/userModel";
 import Error403 from "@/pages/errors/403";
-import GestionEtablissement from "@/pages/admin/gestion/etablissement/Etablissement";
+//import GestionEtablissement from "@/pages/admin/gestion/etablissement/Etablissement";
 import {useState} from "react";
 import useEtablissementModel from "@/models/etablissement/etablissementModel";
 import GestionService from "@/pages/maGestion/gestion/services/GestionService";
@@ -13,7 +14,6 @@ export default function PrestaGestionServices() {
     } = useUserModel()
 
     const {
-        getAllEtablissementFromOnePrestataire,
         getOneEtablissementFromOnePrestataire
     } = useEtablissementModel()
 
@@ -22,7 +22,7 @@ export default function PrestaGestionServices() {
     const currentUser = fetchCurrentUser()
 
     const toto = getOneEtablissementFromOnePrestataire(16, 13)
-
+    console.log(toto)
 
     return (
         <>

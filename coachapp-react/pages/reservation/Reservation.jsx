@@ -116,4 +116,5 @@ export default function Reservation({equipier, action}) {
 
 Reservation.propTypes = {
     equipier: PropTypes.object.isRequired,
+    action: PropTypes.func.isRequired,
 };

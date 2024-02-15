@@ -1,8 +1,9 @@
+import React from "react";
 import useUserModel from "@/models/user/userModel";
 import usePrestaModel from "@/models/presta/prestaModel";
 import useEtablissementModel from "@/models/etablissement/etablissementModel";
 import {useEffect, useState} from "react";
-import PrestaListEtablissement from "@/components/UIComponents/prestaListEtablissement";
+//import PrestaListEtablissement from "@/components/UIComponents/prestaListEtablissement";
 import PrestaGestionContainter from "@/pages/maGestion/PrestaGestionContainter";
 import Error403 from "@/pages/errors/403";
 
