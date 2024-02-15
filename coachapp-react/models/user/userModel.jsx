@@ -53,12 +53,10 @@ export default function useUserModel() {
     }
 
     function isAdmin(id) {
-        console.log(id)
         return true
     }
 
     function isPrestataire(id) {
-        console.log(id)
         return true
     }
 

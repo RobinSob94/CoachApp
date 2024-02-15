@@ -44,7 +44,7 @@ MonCompte.propTypes = {
       prenom: PropTypes.string,
       email: PropTypes.string,
       image: PropTypes.string,
-      role: PropTypes.string,
+      role: PropTypes.array,
     }),
     resetPassword: PropTypes.func.isRequired,
     userForm: PropTypes.any.isRequired, // Adjust the type according to the actual data type
