@@ -30,7 +30,7 @@ export default function EquipierForm({admin = false}) {
             {admin && <div>
                 <label htmlFor={"presta"}>Prestataire</label>
                 <select id={"presta"} onChange={e => setPresta(e.target.value)}>
-                    {prestas.map(function (presta) {
+                    {prestas?.map(function (presta) {
                         return <option key={presta.id} value={presta.id}>{presta.nom}</option>
                     })}
                 </select>

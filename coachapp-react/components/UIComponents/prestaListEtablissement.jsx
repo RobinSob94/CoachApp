@@ -10,7 +10,7 @@ export default function PrestaListEtablissement({...props}) {
         return(
             <div>
                 <div className={styles.prestaListEtablissement}>
-                    {props.etablissements.map(etablissement =>
+                    {props.etablissements?.map(etablissement =>
                         <div key={etablissement.id} className={styles.card}>
                             <div className={styles.cardRow}><p>Nom de l&apos;établissement</p> <p>{etablissement.nom_etablissement}</p></div>
                             <div className={styles.cardRow}><p>Adresse</p> <p>{etablissement.adresse}</p></div>
