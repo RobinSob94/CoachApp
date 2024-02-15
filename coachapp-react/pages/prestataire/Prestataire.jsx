@@ -34,7 +34,7 @@ export default function Prestataire({presta, prestataires = null, isPresta = fal
                         </tr>
                         </thead>
                         <tbody>
-                        {prestataires && prestataires.map(prestaUnique => <tr key={prestaUnique.id}><td>{prestaUnique.nom}</td><td>{prestaUnique.img}</td></tr>)}
+                        {prestataires && prestataires?.map(prestaUnique => <tr key={prestaUnique.id}><td>{prestaUnique.nom}</td><td>{prestaUnique.img}</td></tr>)}
                         </tbody>
                     </table>
                     }
