@@ -2,7 +2,7 @@ import styles from '@/styles/Home.module.css';
 import React, {useEffect, useState} from "react";
 import Navbar from "@/components/UIComponents/navbar";
 import useUserModel from "@/models/user/userModel";
-import Cookies from "js-cookie";
+//import Cookies from "js-cookie";
 export default function NavbarContainer() {
     const {
         isPrestataire,
@@ -12,7 +12,7 @@ export default function NavbarContainer() {
 
     const [isPresta, setIsPresta] = useState(false)
     const [isAdministrateur, setIsAdministrateur] = useState(false)
-
+    console.log(isPrestataire,getCurrentUserId, setIsPresta)
     const id = 18;
 
     useEffect(() => {
