@@ -2,7 +2,7 @@ import styles from '@/styles/Home.module.css';
 import React, {useEffect, useState} from "react";
 import Navbar from "@/components/UIComponents/navbar";
 import useUserModel from "@/models/user/userModel";
-//import Cookies from "js-cookie";
+import Cookies from "js-cookie";
 export default function NavbarContainer() {
     const {
         getUserRole,

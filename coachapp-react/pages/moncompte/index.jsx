@@ -24,6 +24,7 @@ export default function MoncompteContainer() {
     const [changeUserInfoFormState, setChangeUserInfoFormState] = useState({})
     const [error, setErrors] = useState({})
     const [render, setRender] = useState(true)
+    console.log(error)
 
     useEffect(() => {
         getCurrentUserId(Cookies.get('token')).then((response) => {
@@ -74,7 +75,7 @@ export default function MoncompteContainer() {
         e.preventDefault()
         if(handleValidation()) {
             console.log('Modification du User')
-            modifyUser({token: Cookies.get('token'), id: currentUser.id, userInfo: changeUserInfoFormState}).then((response) => {
+            modifyUser({token: Cookies.get('token'), id: currentUser.id, userInfo: changeUserInfoFormState}).then(() => {
                  return setRender(!render)
             })
         }

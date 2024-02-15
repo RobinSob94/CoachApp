@@ -50,4 +50,5 @@ MonCompte.propTypes = {
     userForm: PropTypes.any.isRequired, // Adjust the type according to the actual data type
     seeUserForm: PropTypes.bool.isRequired,
     onSubmit: PropTypes.func.isRequired,
+    setFormState: PropTypes.func.isRequired,
   };
