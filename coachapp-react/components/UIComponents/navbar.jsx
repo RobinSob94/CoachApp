@@ -1,5 +1,4 @@
 import React from 'react';
-//import styles from '@/styles/Home.module.css';
 import NavbarLink from "@/components/UIComponents/navbarLink";
 import PropTypes from "prop-types";
 
@@ -18,6 +17,6 @@ export default function Navbar({...props}) {
 }
 
 Navbar.propTypes = {
-    isAdmin: PropTypes.array.isRequired,
-    isPresta: PropTypes.array.isRequired,
+    isAdmin: PropTypes.bool.isRequired,
+    isPresta: PropTypes.bool.isRequired,
 };
