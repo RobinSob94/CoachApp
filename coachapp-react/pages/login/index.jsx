@@ -55,7 +55,7 @@ export default function Login() {
                 "password": encryptedPassword
             }).then((response) => {
                 Cookies.remove('token')
-                if (response.status && response.status === 404)
+                if (response.code)
                     return setStateFormError("Utilisateur non trouvé")
                 try {
                     const token = response.token;

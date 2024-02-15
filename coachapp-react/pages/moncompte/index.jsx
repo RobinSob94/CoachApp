@@ -7,7 +7,8 @@ import Cookies from "js-cookie";
 export default function MoncompteContainer() {
     const {
         getCurrentUserId,
-        getUserInfo
+        getUserInfo,
+        modifyUser
     } = useUserModel()
 
     const [seeUserForm, setSeeUserForm] = useState(false)
@@ -20,17 +21,12 @@ export default function MoncompteContainer() {
         role: []
 
     })
-    const [changeUserInfoFormState, setChangeUserInfoFormState] = useState({
-        nom: "",
-        prenom: "",
-        email: "",
-        pseudo: "",
-        image: ""
-    })
-    console.log(changeUserInfoFormState)
+    const [changeUserInfoFormState, setChangeUserInfoFormState] = useState({})
+    const [error, setErrors] = useState({})
+    const [render, setRender] = useState(true)
+
     useEffect(() => {
         getCurrentUserId(Cookies.get('token')).then((response) => {
-            console.log(response)
             getUserInfo({id: response.userId, token: Cookies.get('token')}).then((res) => {
                 setCurrentUser({
                     id: res.id,
@@ -42,7 +38,7 @@ export default function MoncompteContainer() {
                 })
             })
         })
-    },[])
+    },[render])
 
 
     const resetPassword = function resetPassword(){
@@ -55,9 +51,33 @@ export default function MoncompteContainer() {
         {seeUserForm ? setSeeUserForm(false) : setSeeUserForm(true)}
     }
 
-    const onSubmit = function handleSubmit(e) {
+    function handleValidation () {
+        const formErrors = {};
+        let formIsValid = true;
 
-        console.log(e)
+        if(typeof changeUserInfoFormState.email !== "undefined"){
+            let lastAtPos = changeUserInfoFormState.email.lastIndexOf('@');
+            let lastDotPos = changeUserInfoFormState.email.lastIndexOf('.');
+
+            if (!(lastAtPos < lastDotPos && lastAtPos > 0 && changeUserInfoFormState.email.indexOf('@@') === -1 && lastDotPos > 2 && (changeUserInfoFormState.email.length - lastDotPos) > 2)) {
+                formIsValid = false
+                formErrors["email"] = "Email is not valid";
+            }
+        }
+
+        setErrors(formErrors)
+        console.log(formErrors)
+        return formIsValid;
+    }
+
+    const onSubmit = function handleSubmit(e) {
+        e.preventDefault()
+        if(handleValidation()) {
+            console.log('Modification du User')
+            modifyUser({token: Cookies.get('token'), id: currentUser.id, userInfo: changeUserInfoFormState}).then((response) => {
+                 return setRender(!render)
+            })
+        }
     }
 
     return (
@@ -68,7 +88,7 @@ export default function MoncompteContainer() {
                 userForm={userForm}
                 userInformations={currentUser}
                 onSubmit={onSubmit}
-                formState={setChangeUserInfoFormState}
+                setFormState={setChangeUserInfoFormState}
             />
         </>
     )

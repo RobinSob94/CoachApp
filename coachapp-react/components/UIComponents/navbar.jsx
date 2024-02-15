@@ -11,7 +11,7 @@ export default function Navbar({...props}) {
          <NavbarLink lien={"/prestataire"} nomLien={"Prestataire"} />
          {props.isPresta && <NavbarLink lien={"/maGestion"} nomLien={"Ma gestion"} />}
          <NavbarLink lien={"/reservation"} nomLien={"Réserver"} />
-         <NavbarLink lien={"/listeequipier"} nomLien={"Liste Equipier"} />
+         {props.isPresta && <NavbarLink lien={"/listeequipier"} nomLien={"Liste Equipier"} />}
      </>
  )
 }

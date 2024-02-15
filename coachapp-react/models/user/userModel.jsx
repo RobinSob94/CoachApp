@@ -12,6 +12,19 @@ export default function useUserModel() {
         return response.json()
     }
 
+    const modifyUser = async (data = {}) => {
+        const response = await fetch(`http://localhost:8888/api/users/${data.id}`, {
+            method: "PATCH",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/merge-patch+json",
+                "Authorization": `Bearer ${data.token}`
+            },
+            body: JSON.stringify(data.userInfo),
+        })
+        return response.json()
+    }
+
     const authentication = async (data = {}) => {
             const response = await fetch('http://localhost:8888/auth', {
                 method: "POST",
@@ -52,14 +65,16 @@ export default function useUserModel() {
         return response.json()
     }
 
-    function isAdmin(id) {
-        console.log(id)
-        return true
-    }
-
-    function isPrestataire(id) {
-        console.log(id)
-        return true
+    const getUserRole = async (data = {}) => {
+            const response = await fetch(`http://localhost:8888/user/roles/${data.id}`, {
+                method: "GET",
+                mode: "cors",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${data.token}`
+                }
+            })
+        return response.json()
     }
 
     function getReservations () {
@@ -99,12 +114,12 @@ export default function useUserModel() {
     }
 
     return {
-        isAdmin,
-        isPrestataire,
+        getUserRole,
         setNewUser,
         setNewPassword,
         getReservations,
         newUser,
+        modifyUser,
         authentication,
         getUserInfo,
         getCurrentUserId
