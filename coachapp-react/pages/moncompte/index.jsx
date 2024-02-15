@@ -75,7 +75,8 @@ export default function MoncompteContainer() {
         e.preventDefault()
         if(handleValidation()) {
             console.log('Modification du User')
-            modifyUser({token: Cookies.get('token'), id: currentUser.id, userInfo: changeUserInfoFormState}).then(() => {
+            modifyUser({token: Cookies.get('token'), id: currentUser.id, userInfo: changeUserInfoFormState}).then((response) => {
+                console.log(response)
                  return setRender(!render)
             })
         }
