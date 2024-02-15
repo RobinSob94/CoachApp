@@ -8,6 +8,7 @@ import { Inter } from 'next/font/google';
 import PropTypes from "prop-types";
 const inter = Inter({ subsets: ['latin'] })
 export default function MonCompte({userInformations, resetPassword, userForm, seeUserForm}) {
+    console.log(userInformations.nom)
     return (
         <>
             <Head>
@@ -39,14 +40,14 @@ export default function MonCompte({userInformations, resetPassword, userForm, se
 
 MonCompte.propTypes = {
     userInformations: PropTypes.shape({
-      nom: PropTypes.string.isRequired,
-      pseudo: PropTypes.string.isRequired,
-      prenom: PropTypes.string.isRequired,
-      email: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-      role: PropTypes.string.isRequired,
+      nom: PropTypes.string,
+      pseudo: PropTypes.string,
+      prenom: PropTypes.string,
+      email: PropTypes.string,
+      image: PropTypes.string,
+      role: PropTypes.string,
     }),
     resetPassword: PropTypes.func.isRequired,
     userForm: PropTypes.any.isRequired, // Adjust the type according to the actual data type
-    seeUserForm: PropTypes.func.isRequired,
+    seeUserForm: PropTypes.bool.isRequired,
   };
