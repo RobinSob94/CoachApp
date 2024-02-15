@@ -5,31 +5,29 @@ import useUserModel from "@/models/user/userModel";
 import Cookies from "js-cookie";
 export default function NavbarContainer() {
     const {
-        isPrestataire,
-        isAdmin,
+        getUserRole,
         getCurrentUserId
     } = useUserModel()
 
     const [isPresta, setIsPresta] = useState(false)
     const [isAdministrateur, setIsAdministrateur] = useState(false)
 
-    const id = 18;
-
     useEffect(() => {
-            // getCurrentUserId(Cookies.get('token')).then((response) => {
-            //     // if (response.status === 200) {
-            //     //     isPrestataire(response.)
-            //     // }
-            //     console.log(response)
-            // })
-            // const data = await isPrestataire(id)
-            // return setIsPresta(data)
-
-        const fetchIsAdmin = async () => {
-            const data = await isAdmin(id)
-            return setIsAdministrateur(data)
-        }
-        fetchIsAdmin()
+            getCurrentUserId(Cookies.get('token')).then((response) => {
+                if (!response.code) {
+                    getUserRole({id: response.userId, token: Cookies.get('token')}).then((res) => {
+                        console.log(res.role)
+                        if (res.role.includes("ROLE_PRESTATAIRE")) {
+                            setIsPresta(true)
+                        }
+                        if (res.role.includes("ROLE_ADMIN")) {
+                            setIsAdministrateur(true)
+                        }
+                    })
+                } else {
+                    console.log('Erreur dans la récupération des role du USER'+response.code)
+                }
+            })
     }, [])
     return (
         <>

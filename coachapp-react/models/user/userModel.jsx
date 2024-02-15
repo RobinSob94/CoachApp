@@ -52,12 +52,16 @@ export default function useUserModel() {
         return response.json()
     }
 
-    function isAdmin(id) {
-        return true
-    }
-
-    function isPrestataire(id) {
-        return true
+    const getUserRole = async (data = {}) => {
+            const response = await fetch(`http://localhost:8888/user/roles/${data.id}`, {
+                method: "GET",
+                mode: "cors",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${data.token}`
+                }
+            })
+        return response.json()
     }
 
     function getReservations () {
@@ -97,8 +101,7 @@ export default function useUserModel() {
     }
 
     return {
-        isAdmin,
-        isPrestataire,
+        getUserRole,
         setNewUser,
         setNewPassword,
         getReservations,

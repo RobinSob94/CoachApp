@@ -30,7 +30,6 @@ export default function MoncompteContainer() {
 
     useEffect(() => {
         getCurrentUserId(Cookies.get('token')).then((response) => {
-            console.log(Cookies.get('token'))
             getUserInfo({id: response.userId, token: Cookies.get('token')}).then((res) => {
                 setCurrentUser({
                     id: res.id,
