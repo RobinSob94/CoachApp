@@ -12,6 +12,19 @@ export default function useUserModel() {
         return response.json()
     }
 
+    const modifyUser = async (data = {}) => {
+        const response = await fetch(`http://localhost:8888/api/users/${data.id}`, {
+            method: "PATCH",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/merge-patch+json",
+                "Authorization": `Bearer ${data.token}`
+            },
+            body: JSON.stringify(data.userInfo),
+        })
+        return response.json()
+    }
+
     const authentication = async (data = {}) => {
             const response = await fetch('http://localhost:8888/auth', {
                 method: "POST",
@@ -106,6 +119,7 @@ export default function useUserModel() {
         setNewPassword,
         getReservations,
         newUser,
+        modifyUser,
         authentication,
         getUserInfo,
         getCurrentUserId
