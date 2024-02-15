@@ -34,8 +34,8 @@ export default function UserInfo({...props}){
 }
 
 UserInfo.propTypes = {
-    nom: PropTypes.string.isRequired,
-    prenom: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    pseudo: PropTypes.string.isRequired,
+    nom: PropTypes.string,
+    prenom: PropTypes.string,
+    email: PropTypes.string,
+    pseudo: PropTypes.string,
 };
