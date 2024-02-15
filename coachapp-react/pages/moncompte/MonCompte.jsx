@@ -7,7 +7,7 @@ import ChangeUserInfoForm from "@/form/user/changeUserInfo";
 import { Inter } from 'next/font/google';
 import PropTypes from "prop-types";
 const inter = Inter({ subsets: ['latin'] })
-export default function MonCompte({userInformations, resetPassword, userForm, seeUserForm}) {
+export default function MonCompte({userInformations, resetPassword, userForm, seeUserForm, onSubmit}) {
     return (
         <>
             <Head>
@@ -31,7 +31,7 @@ export default function MonCompte({userInformations, resetPassword, userForm, se
                     <button className={styles.resetPasswordButton} onClick={userForm}>Change user info</button>
                 </div>
 
-                {seeUserForm && <ChangeUserInfoForm userInfo={userInformations}/>}
+                {seeUserForm && <ChangeUserInfoForm userInfo={userInformations} onSubmit={onSubmit} set/>}
             </main>
         </>
     )
@@ -49,4 +49,5 @@ MonCompte.propTypes = {
     resetPassword: PropTypes.func.isRequired,
     userForm: PropTypes.any.isRequired, // Adjust the type according to the actual data type
     seeUserForm: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
   };

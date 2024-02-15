@@ -13,7 +13,7 @@ export default function useUserModel() {
     }
 
     const authentication = async (data = {}) => {
-            const response = await fetch('http://localhost:8888/api/token', {
+            const response = await fetch('http://localhost:8888/auth', {
                 method: "POST",
                 mode: "cors",
                 headers: {
@@ -25,28 +25,31 @@ export default function useUserModel() {
     }
 
 
-    const getUserRole = async (data = {}) => {
-        const response = await fetch('http://localhost:8888/api/users/role', {
+    const getCurrentUserId = async (data = {}) => {
+        const response = await fetch('http://localhost:8888/user/current', {
             method: "GET",
             mode: "cors",
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": `Bearer ${data}`
             },
-            body: JSON.stringify(data)
         })
         return response.json()
     }
 
-    function fetchCurrentUser() {
-        return {
-            id: 1,
-            image: '../../public/img.png',
-            nom: 'Maux',
-            prenom: 'Jeude',
-            email: 'jeudemaux@false.com',
-            pseudo: 'Manik-et-1',
-            role: 'USER'
+    const getUserInfo = async (data = {}) => {
+        const response = await fetch(`http://localhost:8888/api/users/${data.id}`,
+            {
+                method: "GET",
+                mode: "cors",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${data.token}`
+            }
         }
+    )
+
+        return response.json()
     }
 
     function isAdmin(id) {
@@ -96,7 +99,6 @@ export default function useUserModel() {
     }
 
     return {
-        fetchCurrentUser,
         isAdmin,
         isPrestataire,
         setNewUser,
@@ -104,6 +106,7 @@ export default function useUserModel() {
         getReservations,
         newUser,
         authentication,
-        getUserRole
+        getUserInfo,
+        getCurrentUserId
     }
 }

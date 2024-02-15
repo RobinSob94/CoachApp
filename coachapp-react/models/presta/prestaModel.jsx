@@ -16,9 +16,22 @@ export default function usePrestaModel() {
         }
         }
 
+        const newPresta = async (data = {}) => {
+        const response = await fetch('http://localhost:8888/api/prestataires', {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            return response.json()
+    }
+
 
     return {
         prestaUnique,
-        fetchPrestas
+        fetchPrestas,
+        newPresta
     }
 }
