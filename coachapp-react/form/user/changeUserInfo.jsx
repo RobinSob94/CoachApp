@@ -33,7 +33,7 @@ export default function ChangeUserInfoForm({userInfo, onSubmit}) {
 ChangeUserInfoForm.propTypes = {
     userInfo: PropTypes.shape({
         nom: PropTypes.string,
-        pseudo: PropTypes.string.isRequired,
+        pseudo: PropTypes.string,
         prenom: PropTypes.string.isRequired,
         email: PropTypes.string.isRequired,
         id: PropTypes.number.isRequired,
