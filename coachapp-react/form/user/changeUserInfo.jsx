@@ -1,7 +1,8 @@
 import styles from '@/styles/Home.module.css'
 import React from "react";
+import PropTypes from "prop-types";
 
-export default function ChangeUserInfoForm({userInfo}) {
+export default function ChangeUserInfoForm({userInfo, onSubmit}) {
     return (
         <form onSubmit={e => onSubmit(e, userInfo.id)} className={`${styles.card} ${styles.form}`}>
             <div className={styles.formComponent}>
@@ -28,3 +29,14 @@ export default function ChangeUserInfoForm({userInfo}) {
         </form>
     )
 }
+
+ChangeUserInfoForm.propTypes = {
+    userInfo: PropTypes.shape({
+        nom: PropTypes.string.isRequired,
+        pseudo: PropTypes.string.isRequired,
+        prenom: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+    }),
+        onSubmit: PropTypes.func
+};

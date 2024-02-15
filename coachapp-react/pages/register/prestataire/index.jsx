@@ -2,6 +2,8 @@ import React from 'react'
 import {useState} from "react";
 import PrestaForm from "@/form/prestataire/prestaForm";
 import {useRouter} from "next/navigation";
+import usePrestaModel from "@/models/presta/prestaModel";
+import Cookies from "js-cookie";
 
 
 export default function PrestataireForm() {
@@ -15,8 +17,12 @@ export default function PrestataireForm() {
     const [kbis, setKbis] = useState({})
     const [errors, setErrors] = useState({})
     const [stateFormError, setStateFormError] = useState('')
-    console.log(logo);
+
     const router = useRouter()
+
+    const {
+        newPresta
+    } = usePrestaModel()
 
     /* const {
         TODO: Insert code from usePrestaViewModel
@@ -88,10 +94,21 @@ export default function PrestataireForm() {
     const onSubmit = function handleSubmit(e) {
         e.preventDefault()
         if(handleValidation()){
-            console.log(nomEntreprise + ' ' + adresse + ' ' + telephone + ' ' + email)
+            newPresta({
+                mail: email,
+                telephone: telephone,
+                adresse: adresse,
+                nomEntreprise: nomEntreprise,
+                ville: ville,
+                codePostal: codePostal,
+                image: logo,
+                kbis: kbis,
+                // auth_bearer: Cookies.get('token')
+            }).then((response) => {
+                console.log(response)
+            })
             return router.push('/')
         }else{
-            console.log(nomEntreprise + ' ' + adresse + ' ' + telephone + ' ' + email)
             setStateFormError('Le formulaire contient des erreurs')
         }
     }

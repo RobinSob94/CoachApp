@@ -77,7 +77,6 @@ export default function Register() {
         e.preventDefault();
         const encryptedPassword = md5(password)
         if(handleValidation()){
-            console.log(nom + ' ' + prenom + ' ' + pseudo + ' ' + email + ' ' + password + ' ' + role)
             if (role === 'PRESTATAIRE') {
                 newUser({
                     "nom": nom,
@@ -97,11 +96,11 @@ export default function Register() {
                             const token = response.token;
                             Cookies.remove('token')
                             Cookies.set('token', token, { expires: 1, secure: true, SameSite: 'None' });
+                            router.push('/register/prestataire')
                         } catch (error) {
                             console.log('Failed to set Cookie for token')
                         }
                     })
-                    router.push('/register/prestataire')
                 })
 
             }
@@ -124,6 +123,7 @@ export default function Register() {
                                 const token = response.token;
                                 Cookies.remove('token')
                                 Cookies.set('token', token, { expires: 1, secure: true, SameSite: 'None' });
+                                router.push("/")
                             } catch (error) {
                                 console.log('Failed to set Cookie for token')
                             }
