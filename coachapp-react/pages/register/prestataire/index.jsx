@@ -3,7 +3,7 @@ import {useState} from "react";
 import PrestaForm from "@/form/prestataire/prestaForm";
 import {useRouter} from "next/navigation";
 import usePrestaModel from "@/models/presta/prestaModel";
-import Cookies from "js-cookie";
+//import Cookies from "js-cookie";
 
 
 export default function PrestataireForm() {

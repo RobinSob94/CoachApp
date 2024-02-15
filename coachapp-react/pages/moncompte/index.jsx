@@ -27,7 +27,7 @@ export default function MoncompteContainer() {
         pseudo: "",
         image: ""
     })
-
+    console.log(changeUserInfoFormState)
     useEffect(() => {
         getCurrentUserId(Cookies.get('token')).then((response) => {
             getUserInfo({id: response.userId, token: Cookies.get('token')}).then((res) => {
